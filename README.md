@@ -1,6 +1,6 @@
 # IIC2113 Diseño Detallado de Software - Web
 
-### Dev
+### Development
 
 Copy and run this script
 

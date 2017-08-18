@@ -6,20 +6,10 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: circleci/node:8.4
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
     working_directory: ~/web
-
     steps:
       - checkout
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
@@ -35,18 +25,33 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
-      # - run: yarn test
+      - run: yarn test
   deploy:
     docker:
       - image: circleci/node:8.4
     steps:
-      - run: echo 'master branch'
+      - checkout
+      - run: wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+      - run: bash .circleci/setup-heroku.sh production
+      - add_ssh_keys:
+          fingerprints:
+            - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
+      - deploy:
+          name: Deploy production to Heroku
+          command: git push heroku master
   staging:
     docker:
       - image: circleci/node:8.4
     steps:
-      - run: echo 'dev branch'
+      - checkout
+      - run: wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+      - run: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
+      - deploy:
+          name: Deploy staging to Heroku
+          command: git push heroku dev
 
 workflows:
   version: 2

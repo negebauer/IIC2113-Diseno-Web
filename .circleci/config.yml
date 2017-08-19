@@ -16,6 +16,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
+      - run: yarn build
       - run: yarn install
       - run: sudo npm i -g yarn
       - run: yarn
@@ -27,9 +28,9 @@ jobs:
 
       - run: yarn test -- --coverage
       - store_test_results:
-          path: ./coverage
+          path: ./coverage/junit.xml
       - store_artifacts:
-          path: ./coverage
+          path: ./coverage coverage
   deploy:
     docker:
       - image: circleci/node:8.4

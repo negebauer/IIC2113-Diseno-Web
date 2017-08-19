@@ -10,7 +10,8 @@
   "scripts": {
     "start": "PORT=8080 react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --testResultsProcessor=./node_modules/jest-junit",
+    "test:once": "CI=true yarn test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src"
@@ -19,6 +20,14 @@
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.2.1",
+    "jest-junit": "^2.1.0",
     "prettier": "^1.5.3"
+  },
+  "jest": {
+
+  },
+  "jest-junit": {
+    "output": "./coverage/junit.xml",
+    "usePathForSuiteName": "true"
   }
 }

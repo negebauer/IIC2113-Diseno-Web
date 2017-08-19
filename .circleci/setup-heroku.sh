@@ -1,6 +1,6 @@
 #!/bin/bash
 url='iic2113-web'
-if [[ $1 != 'production' ]]; then
+if [[ $1 != 'master' ]]; then
   url="${url}-staging"
 fi
 

@@ -35,6 +35,7 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:8.4
+    working_directory: ~/web
     steps:
       - checkout
       - run: wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
@@ -44,7 +45,7 @@ jobs:
             - "48:a0:87:54:ca:75:32:12:c6:9e:a2:77:a4:7a:08:a4"
       - deploy:
           name: Deploy to Heroku
-          command: git push heroku $CIRCLE_BRANCH
+          command: git push heroku $CIRCLE_BRANCH:master
 
 workflows:
   version: 2

@@ -15,3 +15,9 @@ it("shallow renders without crashing", () => {
 it("mounts without crashing", () => {
   mount(<App />)
 })
+
+it("renders welcome message", () => {
+  const wrapper = shallow(<App />)
+  const welcome = <h2>Welcome to React</h2>
+  expect(wrapper).toContainReact(welcome)
+})

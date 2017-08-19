@@ -30,7 +30,8 @@ jobs:
       - store_test_results:
           path: ./coverage/junit.xml
       - store_artifacts:
-          path: ./coverage coverage
+          path: ./coverage
+          destination: coverage
   deploy:
     docker:
       - image: circleci/node:8.4

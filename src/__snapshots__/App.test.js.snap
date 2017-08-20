@@ -9,7 +9,7 @@ exports[`matches snapshot 1`] = `
       className="App-header"
     >
       <h2>
-        Welcome to React
+        Welcome to React 2
       </h2>
     </div>
     <p

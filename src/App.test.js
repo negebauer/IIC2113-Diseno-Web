@@ -13,7 +13,7 @@ it("mount renders without crashing", () => {
 
 it("renders welcome message", () => {
   const wrapper = shallow(<App />)
-  const welcome = <h2>Welcome to React</h2>
+  const welcome = <h2>Welcome to React 2</h2>
   expect(wrapper).toContainReact(welcome)
 })
 

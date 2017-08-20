@@ -1,15 +1,5 @@
 import popsicle from "popsicle"
 import { devlog } from "./utils/log"
-// import axios from "axios"
-// import { normalize } from "normalizr"
-// import { course, module, question } from "../schemas"
-
-// const AUTHORIZATION = "Authorization"
-
-// const data = async request => (await request).data
-
-// const configAuthorization = token =>
-//   (axios.defaults.headers.common[AUTHORIZATION] = token)
 
 export default class Api {
   constructor(baseUrl) {

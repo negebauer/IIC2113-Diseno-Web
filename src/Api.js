@@ -1,5 +1,5 @@
-const popsicle = require("popsicle")
 import { devlog } from "./utils/log"
+const popsicle = require("popsicle")
 
 export default class Api {
   constructor(baseUrl) {

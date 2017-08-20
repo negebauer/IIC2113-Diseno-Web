@@ -25,6 +25,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: yarn test -- --coverage
+      - run: yarn lint
       - run: yarn build
       - store_test_results:
           path: ./coverage

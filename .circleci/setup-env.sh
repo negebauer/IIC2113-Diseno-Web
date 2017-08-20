@@ -1,4 +1,3 @@
-rm .env
 touch .env
 
 url="iic2113-web"

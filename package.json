@@ -29,6 +29,8 @@
   "jest": {},
   "jest-junit": {
     "output": "./coverage/junit.xml",
-    "usePathForSuiteName": "true"
+    "usePathForSuiteName": "true",
+    "classNameTemplate": "",
+    "titleTemplate": "{title}"
   }
 }

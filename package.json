@@ -13,12 +13,14 @@
     "test": "react-scripts test --env=jsdom --testResultsProcessor=./node_modules/jest-junit",
     "test:once": "CI=true react-scripts test --env=jsdom",
     "test:coverage": "CI=true react-scripts test --env=jsdom --coverage",
+    "test:snap": "CI=true react-scripts test --env=jsdom -u",
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
     "lint:fix": "eslint --fix ./src"
   },
   "devDependencies": {
     "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.5.1",
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.2.1",

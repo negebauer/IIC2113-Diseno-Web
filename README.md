@@ -3,6 +3,9 @@
 [![circleciB]][circleciL]
 [![styleB]][styleL]
 
+ - Production http://iic2113-web.herokuapp.com/
+ - Staging: http://iic2113-web-staging.herokuapp.com/
+
 ### Development
 
 Copy and run this script

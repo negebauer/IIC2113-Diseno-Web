@@ -1,3 +1,6 @@
+// Maybe check
+// https://github.com/Gethyl/ReactReduxTestingUsingJestEnzyme/blob/master/__test__/Home.spec.js
+
 import React from "react"
 import createHistory from "history/createBrowserHistory"
 import configureStore from "./redux/store"
@@ -5,22 +8,10 @@ import { shallow, mount } from "enzyme"
 import toJson from "enzyme-to-json"
 import App from "./App"
 
-it("passes", () => {})
-
 const history = createHistory()
-
-// Redux required objects
-const initialState = {
-  hydratation: { done: true },
-}
+const initialState = { hydratation: { done: true } }
 const store = configureStore(initialState, history)
-
-// App general settings
-const options = {
-  hydratation: {
-    blacklist: ["hydratation", "router"],
-  },
-}
+const options = { hydratation: { blacklist: ["hydratation", "router"] } }
 
 it("shallow renders without crashing", () => {
   shallow(<App store={store} options={options} history={history} />)

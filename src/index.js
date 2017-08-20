@@ -21,5 +21,5 @@ devlog("index.js", "store", store, "options", options)
 
 export default ReactDOM.render(
   <App store={store} options={options} history={history} />,
-  document.getElementById("root") || document.createElement("div")
+  document.getElementById("root") || document.createElement("root")
 )

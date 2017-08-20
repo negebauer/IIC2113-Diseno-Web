@@ -15,12 +15,7 @@ const initialState = {}
 const store = configureStore(initialState, history, { client })
 
 // App general settings
-const options = {
-  hydratation: {
-    // storage: localStorage,
-    blacklist: ["hydratation", "router"],
-  },
-}
+const options = { hydratation: { blacklist: ["hydratation", "router"] } }
 
 devlog("index.js", "store", store, "options", options)
 

@@ -28,3 +28,13 @@ it("fails on bad url", async () => {
   const err = await api.get("/")
   expect(err).toBeInstanceOf(Error)
 })
+
+describe("integration tests", () => {
+  const url = process.env.REACT_APP_API || "http://localhost:3000"
+  const api = new Api(url)
+
+  it("gets from api", async () => {
+    const r = await api.get("/")
+    expect(r.on).toBeTruthy()
+  })
+})

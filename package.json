@@ -30,6 +30,7 @@
     "redux-persist": "^4.8.3",
     "redux-promise-middleware": "4.2.1",
     "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1",
     "styled-components": "^2.1.2"
   },
   "devDependencies": {

@@ -5,8 +5,11 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/node:8.4
+    machine:
+      node:
+        version: 8.4.0
+      ruby:
+        version: 2.4.1
     working_directory: ~/web
     steps:
       - checkout

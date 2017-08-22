@@ -22,6 +22,7 @@ jobs:
       - run: yarn test -- --coverage
       - run: yarn lint
       - run: yarn build
+
       - store_test_results:
           path: ./coverage
       - store_artifacts:

@@ -29,8 +29,11 @@ jobs:
       - run: yarn build
       - store_test_results:
           path: ./coverage
+      - store_test_results:
+          path: ./coverage/junit.xml
+          destination: ./junit/junit.xml
       - store_artifacts:
-          path: ./coverage
+          path: ./coverage/lcov-report
           destination: coverage
   deploy:
     docker:

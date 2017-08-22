@@ -26,7 +26,6 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-            - ../api/vendor/bundle
           key: dependency-cache-{{ checksum "package.json" }}
 
       - run: yarn test -- --coverage

@@ -6,10 +6,7 @@ version: 2
 jobs:
   build:
     machine:
-      node:
-        version: 8.4.0
-      ruby:
-        version: 2.4.1
+      image: circleci/classic:edge
     working_directory: ~/web
     steps:
       - checkout

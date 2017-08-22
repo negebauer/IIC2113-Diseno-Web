@@ -14,6 +14,9 @@ class Home extends Component {
     return (
       <ContainerCenter>
         <h1>IIC2113 - Web</h1>
+        <h3>
+          Api is at url {process.env.REACT_APP_API || "NO_ENV"}
+        </h3>
       </ContainerCenter>
     )
   }

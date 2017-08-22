@@ -1,21 +1,47 @@
-import React from "react"
-import logo from "./logo.svg"
-import "./App.css"
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import { Provider, connect } from "react-redux"
+import { ConnectedRouter } from "react-router-redux"
 
-class App extends React.Component {
+import { devlog } from "./utils/log"
+import Nav from "./Nav"
+import { hydrate } from "./redux/modules/hydratation"
+
+const mapStateToProps = state => ({
+  hydratation: state.hydratation,
+})
+
+const mapDispatchToProps = {
+  hydrate,
+}
+
+class App extends Component {
+  static propTypes = {
+    store: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
+    hydratation: PropTypes.object.isRequired,
+    hydrate: PropTypes.func.isRequired,
+    options: PropTypes.object,
+  }
+
+  componentWillMount() {
+    const { store, hydrate, options } = this.props
+    hydrate(store, options.hydratation)
+  }
+
   render() {
+    devlog("App", this.state, this.props)
+    if (!this.props.hydratation.done) {
+      return null
+    }
     return (
-      <div className="App">
-        <div className="App-header">
-          <img alt="logo" className="App-logo" src={logo} />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Provider store={this.props.store}>
+        <ConnectedRouter history={this.props.history}>
+          <Nav />
+        </ConnectedRouter>
+      </Provider>
     )
   }
 }
 
-export default App
+export default connect(mapStateToProps, mapDispatchToProps)(App)

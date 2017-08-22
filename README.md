@@ -3,6 +3,21 @@
 [![circleciB]][circleciL]
 [![styleB]][styleL]
 
+### Info
+
+ - Repos
+  - Web: [IIC2113-Web](https://github.com/negebauer/IIC2113-Web)
+  - Api: [IIC2113-Api](https://github.com/negebauer/IIC2113-Api)
+ - Frameworks
+  - Web: [React](https://facebook.github.io/react/)
+  - Api: [Ruby on Rails](http://rubyonrails.org)
+ - Lint
+  - Web: [Prettier](https://github.com/prettier/prettier), [Eslint recommended](https://eslint.org), [React](https://github.com/yannickcr/eslint-plugin-react)
+  - Api: [Rubocop](https://github.com/bbatsov/rubocop)
+ - Versioning system: [Git](https://git-scm.com)
+
+### Servers
+
  - Production http://iic2113-web.herokuapp.com/
  - Staging: http://iic2113-web-staging.herokuapp.com/
 

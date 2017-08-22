@@ -10,6 +10,9 @@ jobs:
     working_directory: ~/web
     steps:
       - checkout
+      - add_ssh_keys:
+        fingerprints:
+          - "4b:58:23:a4:98:12:15:bb:60:39:34:c0:db:e3:d1:4f"
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
@@ -18,10 +21,12 @@ jobs:
 
       - run: sudo npm i -g yarn
       - run: yarn
+      # - run: bash .circleci/setup-api.sh $CIRCLE_BRANCH
 
       - save_cache:
           paths:
             - node_modules
+            - ../api/vendor/bundle
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run: yarn test -- --coverage

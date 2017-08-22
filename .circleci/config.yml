@@ -22,6 +22,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
+            - /usr/local/lib/node_modules/yarn
           key: dependency-cache-{{ checksum "package.json" }}
 
       - run: yarn test -- --coverage

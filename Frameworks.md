@@ -4,7 +4,7 @@ Permite la creación de un backend de manera rápida y robusta capaz de soportar
 
 ### React
 
-Es el framework de front end con mayor popularidad actualmente. Fuerza a las buenas prácticas en el código mediante el uso de componentes reusables y entrega considerables herramientas que facilitan el desarrollo en front end. También hay un interés importante en el equipo por aprender a utilizar esta herramienta.
+Es el framework de frontend con mayor popularidad actualmente. Fuerza a las buenas prácticas en el código mediante el uso de componentes reusables y entrega considerables herramientas que facilitan el desarrollo en front end. También hay un interés importante en el equipo por aprender a utilizar esta herramienta.
 
 ### Combinación
 

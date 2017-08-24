@@ -9,6 +9,7 @@
   - Repo Api: [IIC2113-Api](https://github.com/negebauer/IIC2113-Api)
   - Framework Web: [React](https://facebook.github.io/react/)
   - Framework Api: [Ruby on Rails](http://rubyonrails.org)
+  - [Justificación frameworks](./Frameworks.md)
   - Lint Web: [Prettier](https://github.com/prettier/prettier), [Eslint recommended](https://eslint.org), [React](https://github.com/yannickcr/eslint-plugin-react)
   - Lint Api: [Rubocop](https://github.com/bbatsov/rubocop)
   - Versioning system: [Git](https://git-scm.com)

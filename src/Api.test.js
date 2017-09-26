@@ -1,6 +1,6 @@
 import Api from "./Api"
 
-const url = "http://ip.jsontest.com"
+const url = "https://api.ipify.org?format=json"
 const api = new Api(url)
 
 it("sets urls", () => {
@@ -9,12 +9,12 @@ it("sets urls", () => {
 })
 
 it("gets", async () => {
-  const ip = await api.get("/")
+  const ip = await api.get("")
   expect(ip).toHaveProperty("ip")
 })
 
 it("posts", async () => {
-  const ip = await api.post("/", {})
+  const ip = await api.post("", {})
   expect(ip).toHaveProperty("ip")
 })
 

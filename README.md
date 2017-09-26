@@ -32,8 +32,8 @@ yarn start
 
 <!-- Badges -->
 
-[circleciL]:https://circleci.com/gh/negebauer/IIC2113-Web
-[circleciB]:https://circleci.com/gh/negebauer/IIC2113-Web.svg?style=svg&circle-token=eac648b31799b2c7e9c80f6510bbe4dd5a63c33e
+[circleciL]:https://circleci.com/gh/negebauer/IIC2113-Diseno-Web
+[circleciB]:https://circleci.com/gh/negebauer/IIC2113-Diseno-Web.svg?style=svg&circle-token=eac648b31799b2c7e9c80f6510bbe4dd5a63c33e
 
 [styleL]:https://github.com/prettier/prettier
 [styleB]:https://img.shields.io/badge/code%20style-prettier-brightgreen.svg?style=flat

@@ -12,3 +12,21 @@ body > div {
   width: 100%;
   display: flex;
 }
+
+[data-reactroot] 
+  {height: 100% !important;
+   width: 100% !important;}
+
+#login {
+  margin: 0 auto;
+}
+
+#center30 {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.header {
+  color: #ee6e73;
+  font-weight: 300;
+}

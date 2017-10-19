@@ -1,5 +1,5 @@
-import { devlog } from "./utils/log"
-const popsicle = require("popsicle")
+import { devlog } from './utils/log'
+const popsicle = require('popsicle')
 
 export default class Api {
   constructor(baseUrl) {
@@ -11,7 +11,7 @@ export default class Api {
       const response = await request
       return JSON.parse(response.body)
     } catch (err) {
-      devlog("ERROR API", err)
+      devlog('ERROR API', err)
       return err
     }
   }
@@ -19,4 +19,6 @@ export default class Api {
   url = url => `${this.baseUrl}${url}`
   get = async url => this.request(popsicle.get(this.url(url)));
   post = async (url, body) => this.request(popsicle.post(this.url(url), body))
+
+  login = async userData => this.post('/login', userData)
 }

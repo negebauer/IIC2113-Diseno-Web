@@ -1,77 +1,18 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
-import { connect } from "react-redux"
-import { Route as RouteDom, Link, Switch, withRouter } from "react-router-dom"
-import { Helmet } from "react-helmet"
-import styled from "styled-components"
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { Route as RouteDom, Switch, withRouter } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
+import styled from 'styled-components'
 
-import Home from "./screens/Home"
-import NotFound from "./screens/NotFound"
+import Home from './screens/Home'
+import Login from './screens/Login'
+import Signup from './screens/Signup'
+import NotFound from './screens/NotFound'
 
-const siteTitle = title => (title ? `IIC2113 | ${title}` : "IIC2113 Web")
+const siteTitle = title => (title ? `IIC2113 | ${title}` : 'IIC2113 Web')
 
-const App = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`
-
-const Nav = styled.div`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 50px;
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: Black;
-  color: White;
-`
-
-const NavSection = styled.div`
-  display: flex;
-  flex-flow: row;
-`
-
-const NavLeft = styled(NavSection)``
-
-const NavRight = styled(NavSection)``
-
-const NavHref = styled(Link)`
-  padding: 0 12px;
-  color: ${props => (props.className === "active" ? "#00bfff" : "white")};
-  text-decoration: none;
-  font-weight: lighter;
-  cursor: pointer;
-  :hover {
-    color: #00bfff;
-  }
-`
-
-const NavLink = ({ to, label, exact, ignore = false }) =>
-  <RouteDom path={to} exact={exact}>
-    {({ match }) =>
-      <NavHref to={to} className={!ignore && match ? "active" : ""}>
-        {label}
-      </NavHref>}
-  </RouteDom>
-
-NavLink.propTypes = {
-  to: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  exact: PropTypes.bool,
-  ignore: PropTypes.bool,
-}
-
-const Body = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin: 50px 0 0;
-  width: 100%;
-`
+const Body = styled.div``
 
 const Route = props =>
   <Body>
@@ -87,49 +28,6 @@ Route.propTypes = {
   title: PropTypes.string,
 }
 
-const Footer = styled.div`
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  align-items: center;
-  background-color: lightGray;
-`
-
-const FooterSection = styled.div`
-  display: flex;
-  flex-flow: row;
-`
-
-const FooterLeft = styled(FooterSection)``
-
-const FooterRight = styled(FooterSection)``
-
-const FooterHref = styled.a`
-  padding: 0 12px;
-  color: ${props => (props.active ? "blueviolet" : "black")};
-  text-decoration: none;
-  font-weight: lighter;
-  cursor: pointer;
-  :hover {
-    color: blueviolet;
-  }
-`
-
-const FooterLink = ({ to, label }) =>
-  <FooterHref href={to} target>
-    {label}
-  </FooterHref>
-
-FooterLink.propTypes = {
-  to: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-}
-
 const mapStateToProps = () => ({})
 
 const mapDispatchToProps = {}
@@ -137,36 +35,32 @@ const mapDispatchToProps = {}
 class Navigator extends Component {
   render() {
     return (
-      <App>
-        <Nav>
-          <NavLeft>
-            <NavLink to="/" label="IIC2113 Web" exact ignore />
-            <NavLink to="/other1" label="Other 1" />
-            <NavLink to="/other2" label="Other 2" />
-          </NavLeft>
-          <NavRight>
-            <NavLink to="/go" label="Accesos" />
-          </NavRight>
-        </Nav>
+      <div>
+        <nav>
+          <div className="nav-wrapper">
+            <a href="/" className="brand-logo">
+              Logo
+            </a>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li>
+                <a href="sass.html">Sass</a>
+              </li>
+              <li>
+                <a href="badges.html">Components</a>
+              </li>
+              <li>
+                <a href="/login">Login</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
         <Switch>
           <Route exact path="/" component={Home} />
-          {/* <Route exact path="/go" component={Go} title="Accesos" /> */}
-          {/* <Route path="/go/siding" component={GoSiding} title="Siding" /> */}
+          <Route path="/login" component={Login} title="Login" />
+          <Route path="/signup" component={Signup} title="signup" />
           <Route component={NotFound} title="Not found" />
         </Switch>
-        <Footer>
-          <FooterLeft>
-            <FooterLink
-              to="mailto:info@negebauer.com?subject=Contacto%20web&body=%0D%0A%0D%0AEnviado%20desde%20https://negebauer.com"
-              label="Mail"
-            />
-            <FooterLink to="https://t.me/negebauer" label="Telegram" />
-          </FooterLeft>
-          <FooterRight>
-            <FooterLink to="https://github.com/negebauer" label="Github" />
-          </FooterRight>
-        </Footer>
-      </App>
+      </div>
     )
   }
 }

@@ -1,9 +1,9 @@
-import { persistStore } from "redux-persist"
-import { REHYDRATE } from "redux-persist/constants"
-import _ from "lodash/fp/object"
+import { persistStore } from 'redux-persist'
+import { REHYDRATE } from 'redux-persist/constants'
+import _ from 'lodash/fp/object'
 
 // Actions
-export const HYDRATATION = "negebauer/hydratation/HYDRATATION"
+export const HYDRATATION = 'negebauer/hydratation/HYDRATATION'
 
 // Initial state
 const initialState = {

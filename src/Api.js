@@ -17,8 +17,9 @@ export default class Api {
   }
 
   url = url => `${this.baseUrl}${url}`
-  get = async url => this.request(popsicle.get(this.url(url)));
-  post = async (url, body) => this.request(popsicle.post(this.url(url), body))
+  get = async url => this.request(popsicle.get({ url: this.url(url) }));
+  post = async (url, body) =>
+    this.request(popsicle.post({ url: this.url(url), body }))
 
   login = async userData => this.post('/login', userData)
 }

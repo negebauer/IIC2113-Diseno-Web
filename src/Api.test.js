@@ -19,12 +19,18 @@ it('posts', async () => {
 })
 
 it('fails parsing json', async () => {
-  const err = await api.request(new Promise(res => res('asd/adw')))
-  expect(err).toBeInstanceOf(Error)
+  try {
+    await api.request(new Promise(res => res('asd/adw')))
+  } catch (err) {
+    expect(err).toBeInstanceOf(Error)
+  }
 })
 
 it('fails on bad url', async () => {
   const api = new Api('')
-  const err = await api.get('/')
-  expect(err).toBeInstanceOf(Error)
+  try {
+    await api.get('/')
+  } catch (err) {
+    expect(err).toBeInstanceOf(Error)
+  }
 })

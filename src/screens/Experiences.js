@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { devlog } from '../utils/log'
 import { fetchExperiences } from '../redux/modules/user'
@@ -36,11 +37,10 @@ class Experiences extends Component {
             <h2 className="header">
               {message}
             </h2>
-            <a
-              href="/newexperience"
-              className="btn-floating btn-large waves-effect waves-light red"
-            >
-              <i className="material-icons">add</i>
+            <a className="btn-floating btn-large waves-effect waves-light red">
+              <i className="material-icons">
+                <Link to="/newexperience">add</Link>
+              </i>
             </a>
             <table className="bordered responsive-table">
               <thead>

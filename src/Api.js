@@ -58,4 +58,10 @@ export default class Api {
     const response = await this.get('/experiences', userData)
     return Promise.resolve(response)
   }
+
+  createExperience = async userData => {
+    const response = await this.post('/experiences', userData)
+    this.configToken(response.api_key)
+    return Promise.resolve(response)
+  }
 }

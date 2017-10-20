@@ -227,6 +227,7 @@ exports[`matches snapshot 1`] = `
                       "replace": [Function],
                     }
                   }
+                  loading={false}
                   location={
                     Object {
                       "hash": "",
@@ -235,6 +236,7 @@ exports[`matches snapshot 1`] = `
                       "state": undefined,
                     }
                   }
+                  mail=""
                   match={
                     Object {
                       "isExact": true,
@@ -261,16 +263,9 @@ exports[`matches snapshot 1`] = `
                         >
                           <li>
                             <a
-                              href="sass.html"
+                              href="/signup"
                             >
-                              Sass
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              href="badges.html"
-                            >
-                              Components
+                              Signup
                             </a>
                           </li>
                           <li>
@@ -421,23 +416,17 @@ exports[`matches snapshot 1`] = `
                                     }
                                   }
                                 >
-                                  <Styled(styled.div)>
-                                    <styled.div
-                                      className="sc-htpNat hTNTjW"
-                                    >
-                                      <div
-                                        className="sc-htpNat hTNTjW sc-bdVaJa cljovs"
-                                      >
-                                        <h1>
-                                          IIC2113 - Web
-                                        </h1>
-                                        <h3>
-                                          Api is at url 
-                                          NO_ENV
-                                        </h3>
-                                      </div>
-                                    </styled.div>
-                                  </Styled(styled.div)>
+                                  <div
+                                    className="container"
+                                  >
+                                    <h1>
+                                      IIC2113 - Web
+                                    </h1>
+                                    <h3>
+                                      Api is at url 
+                                      NO_ENV
+                                    </h3>
+                                  </div>
                                 </Home>
                               </Connect(Home)>
                             </Route>

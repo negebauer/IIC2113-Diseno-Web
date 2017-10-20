@@ -27,7 +27,6 @@ class Experiences extends Component {
       (this.props.error && this.props.error) ||
       'Experiencias'
 
-    
     return (
       <div>
         <div className="container">
@@ -35,7 +34,10 @@ class Experiences extends Component {
             <h2 className="header">
               {message}
             </h2>
-            <a className="btn-floating btn-large waves-effect waves-light red">
+            <a
+              href="/newexperience"
+              className="btn-floating btn-large waves-effect waves-light red"
+            >
               <i className="material-icons">add</i>
             </a>
             <table className="bordered responsive-table">

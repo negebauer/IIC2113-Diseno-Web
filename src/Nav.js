@@ -9,6 +9,7 @@ import Home from './screens/Home'
 import Login from './screens/Login'
 import Signup from './screens/Signup'
 import Experiences from './screens/Experiences'
+import NewExperience from './screens/NewExperience'
 import NotFound from './screens/NotFound'
 
 const siteTitle = title => (title ? `IIC2113 | ${title}` : 'IIC2113 Web')
@@ -46,7 +47,6 @@ class Navigator extends Component {
         </div>
       )
     }
-
 
     let links = null
     if (!this.props.mail) {
@@ -99,6 +99,11 @@ class Navigator extends Component {
             path="/experiences"
             component={Experiences}
             title="experiences"
+          />
+          <Route
+            path="/newexperience"
+            component={NewExperience}
+            title="newexperience"
           />
           <Route component={NotFound} title="Not found" />
         </Switch>

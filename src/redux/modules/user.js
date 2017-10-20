@@ -1,3 +1,4 @@
+import { REHYDRATE } from 'redux-persist/constants'
 import _ from 'lodash/fp/object'
 
 // Actions
@@ -13,6 +14,7 @@ const initialState = {
   password: '',
   api_key: '',
   error: undefined,
+  loading: false,
 }
 
 // Reducer
@@ -22,13 +24,17 @@ export default function reducer(state = initialState, action) {
     case SAVE_USER: {
       return _.merge(state, payload)
     }
-    case LOGIN_FULFILLED: {
-      return _.merge(state, payload)
+    case LOGIN_PENDING: {
+      return _.merge(state, { loading: true })
     }
-    default: {
-      return state
+    case LOGIN_FULFILLED: {
+      return _.merge(state, { ...payload, loading: false })
+    }
+    case REHYDRATE: {
+      return _.merge(state, { loading: false })
     }
   }
+  return state
 }
 
 // Action creators

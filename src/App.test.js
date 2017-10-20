@@ -17,7 +17,8 @@ let options
 beforeEach(() => {
   history = createHistory()
   initialState = { hydratation: { done: true } }
-  store = configureStore(initialState, history)
+  const api = { configToken: () => {} }
+  store = configureStore(initialState, { history, api })
   options = { hydratation: { blacklist: ['hydratation', 'router'] } }
 })
 

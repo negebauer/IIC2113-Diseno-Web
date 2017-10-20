@@ -1,11 +1,11 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
-import { Provider, connect } from "react-redux"
-import { ConnectedRouter } from "react-router-redux"
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Provider, connect } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
 
-import { devlog } from "./utils/log"
-import Nav from "./Nav"
-import { hydrate } from "./redux/modules/hydratation"
+import { devlog } from './utils/log'
+import Nav from './Nav'
+import { hydrate } from './redux/modules/hydratation'
 
 const mapStateToProps = state => ({
   hydratation: state.hydratation,
@@ -30,7 +30,7 @@ class App extends Component {
   }
 
   render() {
-    devlog("App", this.state, this.props)
+    devlog('App', this.state, this.props)
     if (!this.props.hydratation.done) {
       return null
     }

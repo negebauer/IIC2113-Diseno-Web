@@ -9,6 +9,7 @@ import { replace } from '../redux/modules/router'
 const mapStateToProps = state => ({
   loading: state.user.loading,
   api_key: state.user.api_key,
+  error: state.user.error,
 })
 
 const mapDispatchToProps = {
@@ -47,12 +48,16 @@ class Login extends Component {
 
   render() {
     devlog('Login', this.props)
+    const message =
+      (this.props.loading && 'Cargando') ||
+      (this.props.error && this.props.error) ||
+      'Login'
     return (
       <div id="center30">
         <div id="login" className="row">
           <form className="col s12" ref={f => (this.form = f)}>
             <h2 className="header">
-              {(this.props.loading && 'Cargando') || 'Login'}
+              {message}
             </h2>
             <div className="row">
               <div className="input-field col s12">
@@ -95,6 +100,7 @@ class Login extends Component {
 
 Login.propTypes = {
   api_key: PropTypes.string.isRequired,
+  error: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   saveUser: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,

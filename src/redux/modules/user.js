@@ -10,10 +10,11 @@ export const SAVE_USER = 'negebauer/user/SAVE_USER'
 
 // Initial state
 const initialState = {
+  name: '',
   mail: '',
   password: '',
   api_key: '',
-  error: undefined,
+  error: '',
   loading: false,
 }
 
@@ -30,8 +31,15 @@ export default function reducer(state = initialState, action) {
     case LOGIN_FULFILLED: {
       return _.merge(state, { ...payload, loading: false })
     }
+    case LOGIN_REJECTED: {
+      return _.merge(state, { error: payload.message, loading: false })
+    }
     case REHYDRATE: {
-      return _.merge(state, { ...payload.user, loading: false })
+      return _.merge(state, {
+        ...payload.user,
+        error: '',
+        loading: false,
+      })
     }
     default: {
       return state

@@ -253,26 +253,51 @@ exports[`matches snapshot 1`] = `
                       >
                         <a
                           className="brand-logo"
-                          href="/"
                         >
-                          Logo
+                          <Link
+                            replace={false}
+                            to="/"
+                          >
+                            <a
+                              href="/"
+                              onClick={[Function]}
+                            >
+                              Logo
+                            </a>
+                          </Link>
                         </a>
                         <ul
                           className="right hide-on-med-and-down"
                           id="nav-mobile"
                         >
                           <li>
-                            <a
-                              href="/signup"
-                            >
-                              Signup
+                            <a>
+                              <Link
+                                replace={false}
+                                to="/signup"
+                              >
+                                <a
+                                  href="/signup"
+                                  onClick={[Function]}
+                                >
+                                  Signup
+                                </a>
+                              </Link>
                             </a>
                           </li>
                           <li>
-                            <a
-                              href="/login"
-                            >
-                              Login
+                            <a>
+                              <Link
+                                replace={false}
+                                to="/login"
+                              >
+                                <a
+                                  href="/login"
+                                  onClick={[Function]}
+                                >
+                                  Login
+                                </a>
+                              </Link>
                             </a>
                           </li>
                         </ul>

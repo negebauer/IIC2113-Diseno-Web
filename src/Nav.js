@@ -69,8 +69,8 @@ class Navigator extends Component {
       links = (
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
-            <a href="/experiences" data-hover="true">
-              Experiences
+            <a data-hover="true">
+              <Link to="/experiences">Experiences</Link>
             </a>
           </li>
           <li>

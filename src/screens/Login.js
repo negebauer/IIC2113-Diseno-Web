@@ -27,7 +27,7 @@ class Login extends Component {
   }
 
   componentWillUpdate = nextProps => {
-    if (nextProps.api_key != this.props.api_key) {
+    if (nextProps.api_key !== this.props.api_key) {
       this.props.replace('/')
     }
   }

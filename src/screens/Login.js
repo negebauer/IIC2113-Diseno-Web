@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import { devlog } from '../utils/log'
@@ -13,7 +14,7 @@ const mapDispatchToProps = {
   saveUser,
 }
 
-class Home extends Component {
+class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -82,4 +83,10 @@ class Home extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+Login.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  saveUser: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

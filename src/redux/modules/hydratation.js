@@ -1,5 +1,5 @@
 import { persistStore } from 'redux-persist'
-import { REHYDRATE } from 'redux-persist/constants'
+// import { REHYDRATE } from 'redux-persist/constants'
 import _ from 'lodash/fp/object'
 
 // Actions
@@ -15,11 +15,11 @@ const initialState = {
 // Reducer
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case REHYDRATE: {
-      return _.merge(state, { done: true })
-    }
+    // case REHYDRATE: {
+    //   return _.merge(state, { done: true })
+    // }
     case HYDRATATION: {
-      return _.merge(state, action.payload)
+      return _.merge(state, { ...action.payload, done: true })
     }
     default: {
       return state

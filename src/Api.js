@@ -5,7 +5,7 @@ export default class Api {
   constructor(baseUrl) {
     this.baseUrl = baseUrl
     // Harcoded token!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    this.token = 'hWNQpdK7dmUS3quiEJBZM4bN'
+    this.token = ''
   }
 
   configToken = token => (this.token = token)
@@ -25,11 +25,13 @@ export default class Api {
 
   url = url => `${this.baseUrl}${url}`
 
+  tokenHeader = () => `Token token=${this.token}`
+
   get = async url =>
     this.request(
       popsicle.get({
         url: this.url(url),
-        headers: { Authorization: `Token token=${this.token}` },
+        headers: { Authorization: this.tokenHeader() },
       })
     );
 
@@ -38,7 +40,7 @@ export default class Api {
       popsicle.post({
         url: this.url(url),
         body,
-        headers: { Authorization: `Token token=${this.token}` },
+        headers: { Authorization: this.tokenHeader() },
       })
     )
 

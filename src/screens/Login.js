@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { devlog } from '../utils/log'
-import { login } from '../redux/modules/user'
+import { login, saveUser } from '../redux/modules/user'
 
 const mapStateToProps = () => ({})
 
 const mapDispatchToProps = {
   login,
+  saveUser,
 }
 
 class Home extends Component {
@@ -22,6 +23,7 @@ class Home extends Component {
     e.preventDefault()
     devlog(this.state.mail)
     devlog(this.state.password)
+    this.props.saveUser(this.state)
     this.props.login(this.state)
   }
 

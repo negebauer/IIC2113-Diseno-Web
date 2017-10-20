@@ -18,7 +18,7 @@ it('posts', async () => {
   expect(ip).toHaveProperty('ip')
 })
 
-it('fails parsing json', async () => {
+it('fails parsing invalid json', async () => {
   try {
     await api.request(new Promise(res => res('asd/adw')))
   } catch (err) {

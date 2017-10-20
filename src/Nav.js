@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { Route as RouteDom, Switch, withRouter } from 'react-router-dom'
+import { Route as RouteDom, Link, Switch, withRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
@@ -54,10 +54,14 @@ class Navigator extends Component {
       links = (
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
-            <a href="/signup">Signup</a>
+            <a>
+              <Link to="/signup">Signup</Link>
+            </a>
           </li>
           <li>
-            <a href="/login">Login</a>
+            <a>
+              <Link to="/login">Login</Link>
+            </a>
           </li>
         </ul>
       )
@@ -70,7 +74,9 @@ class Navigator extends Component {
             </a>
           </li>
           <li>
-            <a href="/logout">Logout</a>
+            <a>
+              <Link to="/logout">Logout</Link>
+            </a>
           </li>
           <li>
             <a>
@@ -85,8 +91,8 @@ class Navigator extends Component {
       <div>
         <nav>
           <div className="nav-wrapper">
-            <a href="/" className="brand-logo">
-              Logo
+            <a className="brand-logo">
+              <Link to="/">Logo</Link>
             </a>
             {links}
             {loading}

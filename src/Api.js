@@ -46,4 +46,10 @@ export default class Api {
     this.configToken(response.api_key)
     return Promise.resolve(response)
   }
+
+  signup = async userData => {
+    const response = await this.post('/signup', userData)
+    this.configToken(response.api_key)
+    return Promise.resolve(response)
+  }
 }

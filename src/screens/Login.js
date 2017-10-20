@@ -53,7 +53,7 @@ class Login extends Component {
       (this.props.error && this.props.error) ||
       'Login'
     return (
-      <div id="center30">
+      <div className="container">
         <div id="login" className="row">
           <form className="col s12" ref={f => (this.form = f)}>
             <h2 className="header">

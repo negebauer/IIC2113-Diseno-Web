@@ -22,6 +22,7 @@ class Login extends Component {
       password: '',
     }
   }
+
   submit = e => {
     e.preventDefault()
     devlog(this.state.mail)

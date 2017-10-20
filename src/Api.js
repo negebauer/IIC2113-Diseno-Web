@@ -4,7 +4,8 @@ const popsicle = require('popsicle')
 export default class Api {
   constructor(baseUrl) {
     this.baseUrl = baseUrl
-    this.token = ''
+    // Harcoded token!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    this.token = 'hWNQpdK7dmUS3quiEJBZM4bN'
   }
 
   configToken = token => (this.token = token)
@@ -28,7 +29,7 @@ export default class Api {
     this.request(
       popsicle.get({
         url: this.url(url),
-        headers: { Token: `token=${this.token}` },
+        headers: { Authorization: `Token token=${this.token}` },
       })
     );
 
@@ -37,7 +38,7 @@ export default class Api {
       popsicle.post({
         url: this.url(url),
         body,
-        headers: { Token: `token=${this.token}` },
+        headers: { Authorization: `Token token=${this.token}` },
       })
     )
 
@@ -50,6 +51,11 @@ export default class Api {
   signup = async userData => {
     const response = await this.post('/signup', userData)
     this.configToken(response.api_key)
+    return Promise.resolve(response)
+  }
+
+  fetchExperiences = async userData => {
+    const response = await this.get('/experiences', userData)
     return Promise.resolve(response)
   }
 }

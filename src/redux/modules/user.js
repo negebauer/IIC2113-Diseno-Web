@@ -11,6 +11,10 @@ export const SIGNUP = 'negebauer/user/SIGNUP'
 export const SIGNUP_PENDING = SIGNUP + '_PENDING'
 export const SIGNUP_FULFILLED = SIGNUP + '_FULFILLED'
 export const SIGNUP_REJECTED = SIGNUP + '_REJECTED'
+export const FETCH_EXPERIENCES = 'negebauer/user/FETCH_EXPERIENCES'
+export const FETCH_EXPERIENCES_PENDING = FETCH_EXPERIENCES + '_PENDING'
+export const FETCH_EXPERIENCES_FULFILLED = FETCH_EXPERIENCES + '_FULFILLED'
+export const FETCH_EXPERIENCES_REJECTED = FETCH_EXPERIENCES + '_REJECTED'
 
 // Initial state
 const initialState = {
@@ -47,6 +51,15 @@ export default function reducer(state = initialState, action) {
     case SIGNUP_REJECTED: {
       return _.merge(state, { error: payload.message, loading: false })
     }
+    case FETCH_EXPERIENCES_PENDING: {
+      return _.merge(state, { loading: true })
+    }
+    case FETCH_EXPERIENCES_FULFILLED: {
+      return _.merge(state, { ...payload, loading: false })
+    }
+    case FETCH_EXPERIENCES_REJECTED: {
+      return _.merge(state, { error: payload.message, loading: false })
+    }
     case REHYDRATE: {
       return _.merge(state, {
         ...payload.user,
@@ -78,4 +91,10 @@ export const signup = ({ name, mail, password, password_confirmation }) => (
   dispatch({
     type: SIGNUP,
     payload: api.signup({ name, mail, password, password_confirmation }),
+  })
+
+export const fetchExperiences = () => (dispatch, getState, { api }) =>
+  dispatch({
+    type: FETCH_EXPERIENCES,
+    payload: api.fetchExperiences(),
   })

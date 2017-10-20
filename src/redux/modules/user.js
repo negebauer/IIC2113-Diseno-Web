@@ -44,5 +44,5 @@ export const login = ({ mail, password }) => (dispatch, getState, { api }) =>
     payload: api.login({ mail, password }),
   })
 
-
-export const saveUser = ({ mail, password }) => dispatch => dispatch({ type: SAVE_USER, payload: { mail, password } })
+export const saveUser = ({ mail, password }) => dispatch =>
+  dispatch({ type: SAVE_USER, payload: { mail, password } })

@@ -40,7 +40,9 @@ class Home extends Component {
       <div id="center30">
         <div id="login" className="row">
           <form className="col s12" ref={f => (this.form = f)}>
-            <h2 className="header">{this.props.loading && "Cargando" || "Login"}</h2>
+            <h2 className="header">
+              {(this.props.loading && 'Cargando') || 'Login'}
+            </h2>
             <div className="row">
               <div className="input-field col s12">
                 <input

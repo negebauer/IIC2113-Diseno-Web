@@ -73,7 +73,7 @@ class Navigator extends Component {
             <a href="/logout">Logout</a>
           </li>
           <li>
-            <a href="#">
+            <a>
               {this.props.mail}
             </a>
           </li>

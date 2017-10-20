@@ -4,14 +4,17 @@ import { connect } from 'react-redux'
 
 import { devlog } from '../utils/log'
 import { login, saveUser } from '../redux/modules/user'
+import { replace } from '../redux/modules/router'
 
 const mapStateToProps = state => ({
   loading: state.user.loading,
+  api_key: state.user.api_key,
 })
 
 const mapDispatchToProps = {
   login,
   saveUser,
+  replace,
 }
 
 class Login extends Component {
@@ -20,6 +23,12 @@ class Login extends Component {
     this.state = {
       mail: '',
       password: '',
+    }
+  }
+
+  componentWillUpdate = nextProps => {
+    if (nextProps.api_key != this.props.api_key) {
+      this.props.replace('/')
     }
   }
 
@@ -85,9 +94,11 @@ class Login extends Component {
 }
 
 Login.propTypes = {
+  api_key: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   saveUser: PropTypes.func.isRequired,
   login: PropTypes.func.isRequired,
+  replace: PropTypes.func.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

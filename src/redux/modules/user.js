@@ -31,7 +31,7 @@ export default function reducer(state = initialState, action) {
       return _.merge(state, { ...payload, loading: false })
     }
     case REHYDRATE: {
-      return _.merge(state, { loading: false })
+      return _.merge(state, { ...payload.user, loading: false })
     }
   }
   return state

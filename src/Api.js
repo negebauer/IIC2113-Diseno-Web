@@ -6,6 +6,7 @@ export default class Api {
     this.baseUrl = baseUrl
     // Harcoded token!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     this.token = ''
+    this.experiences = []
   }
 
   configToken = token => (this.token = token)
@@ -44,6 +45,14 @@ export default class Api {
       })
     )
 
+  delete = async url =>
+    this.request(
+      popsicle.del({
+        url: this.url(url),
+        headers: { Authorization: this.tokenHeader() },
+      })
+    )
+
   login = async userData => {
     const response = await this.post('/login', userData)
     this.configToken(response.api_key)
@@ -56,14 +65,9 @@ export default class Api {
     return Promise.resolve(response)
   }
 
-  fetchExperiences = async userData => {
-    const response = await this.get('/experiences', userData)
-    return Promise.resolve(response)
-  }
+  fetchExperiences = async userData => this.get('/experiences', userData)
 
-  createExperience = async userData => {
-    const response = await this.post('/experiences', userData)
-    this.configToken(response.api_key)
-    return Promise.resolve(response)
-  }
+  createExperience = async userData => this.post('/experiences', userData)
+
+  logout = async userData => this.delete('/logout', userData)
 }

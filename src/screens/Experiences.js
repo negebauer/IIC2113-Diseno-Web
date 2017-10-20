@@ -4,11 +4,13 @@ import { connect } from 'react-redux'
 
 import { devlog } from '../utils/log'
 import { fetchExperiences } from '../redux/modules/user'
+import ExperienceTableItem from '../components/ExperienceTableItem'
 
 const mapStateToProps = state => ({
   loading: state.user.loading,
   api_key: state.user.api_key,
   error: state.user.error,
+  experiences: state.user.experiences,
 })
 
 const mapDispatchToProps = {
@@ -43,44 +45,20 @@ class Experiences extends Component {
             <table className="bordered responsive-table">
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Item Name</th>
-                  <th>Item Price</th>
+                  <th>Nombre</th>
+                  <th>Descripcion</th>
                   <th>Agregar usuario</th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <td>Alvin</td>
-                  <td>Eclair</td>
-                  <td>$0.87</td>
-                  <td>
-                    <a className="waves-effect waves-light btn">
-                      <i className="material-icons right">add</i>Agregar
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Alan</td>
-                  <td>Jellybean</td>
-                  <td>$3.76</td>
-                  <td>
-                    <a className="waves-effect waves-light btn">
-                      <i className="material-icons right">add</i>Agregar
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Jonathan</td>
-                  <td>Lollipop</td>
-                  <td>$7.00</td>
-                  <td>
-                    <a className="waves-effect waves-light btn">
-                      <i className="material-icons right">add</i>Agregar
-                    </a>
-                  </td>
-                </tr>
+                {this.props.experiences.map(e =>
+                  <ExperienceTableItem
+                    key={e.id}
+                    name={e.name}
+                    description={e.description}
+                  />
+                )}
               </tbody>
             </table>
           </div>
@@ -95,6 +73,7 @@ Experiences.propTypes = {
   error: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
   fetchExperiences: PropTypes.func.isRequired,
+  experiences: PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Experiences)

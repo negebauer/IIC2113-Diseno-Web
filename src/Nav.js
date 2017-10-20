@@ -7,6 +7,7 @@ import styled from 'styled-components'
 
 import Home from './screens/Home'
 import Login from './screens/Login'
+import Logout from './screens/Logout'
 import Signup from './screens/Signup'
 import Experiences from './screens/Experiences'
 import NewExperience from './screens/NewExperience'
@@ -95,6 +96,7 @@ class Navigator extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} title="Login" />
           <Route path="/signup" component={Signup} title="signup" />
+          <Route path="/logout" component={Logout} title="logout" />
           <Route
             path="/experiences"
             component={Experiences}

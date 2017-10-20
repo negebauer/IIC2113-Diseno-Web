@@ -15,6 +15,10 @@ export const FETCH_EXPERIENCES = 'negebauer/user/FETCH_EXPERIENCES'
 export const FETCH_EXPERIENCES_PENDING = FETCH_EXPERIENCES + '_PENDING'
 export const FETCH_EXPERIENCES_FULFILLED = FETCH_EXPERIENCES + '_FULFILLED'
 export const FETCH_EXPERIENCES_REJECTED = FETCH_EXPERIENCES + '_REJECTED'
+export const LOGOUT = 'negebauer/user/LOGOUT'
+export const LOGOUT_PENDING = LOGOUT + '_PENDING'
+export const LOGOUT_FULFILLED = LOGOUT + '_FULFILLED'
+export const LOGOUT_REJECTED = LOGOUT + '_REJECTED'
 
 // Initial state
 const initialState = {
@@ -24,6 +28,7 @@ const initialState = {
   api_key: '',
   error: '',
   loading: false,
+  experiences: [],
 }
 
 // Reducer
@@ -55,9 +60,18 @@ export default function reducer(state = initialState, action) {
       return _.merge(state, { loading: true })
     }
     case FETCH_EXPERIENCES_FULFILLED: {
-      return _.merge(state, { ...payload, loading: false })
+      return _.merge(state, { experiences: payload, loading: false })
     }
     case FETCH_EXPERIENCES_REJECTED: {
+      return _.merge(state, { error: payload.message, loading: false })
+    }
+    case LOGOUT_PENDING: {
+      return _.merge(state, { loading: true })
+    }
+    case LOGOUT_FULFILLED: {
+      return _.merge(initialState)
+    }
+    case LOGOUT_REJECTED: {
       return _.merge(state, { error: payload.message, loading: false })
     }
     case REHYDRATE: {
@@ -97,4 +111,10 @@ export const fetchExperiences = () => (dispatch, getState, { api }) =>
   dispatch({
     type: FETCH_EXPERIENCES,
     payload: api.fetchExperiences(),
+  })
+
+export const logout = () => (dispatch, getState, { api }) =>
+  dispatch({
+    type: LOGOUT,
+    payload: api.logout(),
   })

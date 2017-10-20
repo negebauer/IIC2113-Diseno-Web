@@ -91,7 +91,7 @@ class NewExperience extends Component {
               className="waves-effect waves-light btn-large"
               onClick={this.submit}
             >
-              Login
+              Agregar experiencia
             </button>
           </form>
         </div>

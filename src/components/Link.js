@@ -1,10 +1,10 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Link as RouterLink } from "react-router-dom"
-import styled from "styled-components"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link as RouterLink } from 'react-router-dom'
+import styled from 'styled-components'
 
-const linkColor = "#00bfff"
-const linkColorHover = "#1e90ff"
+const linkColor = '#00bfff'
+const linkColorHover = '#1e90ff'
 
 export const LinkAction = styled.div`
   color: ${linkColor};

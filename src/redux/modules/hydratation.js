@@ -1,9 +1,9 @@
-import { persistStore } from "redux-persist"
-import { REHYDRATE } from "redux-persist/constants"
-import _ from "lodash/fp/object"
+import { persistStore } from 'redux-persist'
+// import { REHYDRATE } from 'redux-persist/constants'
+import _ from 'lodash/fp/object'
 
 // Actions
-export const HYDRATATION = "negebauer/hydratation/HYDRATATION"
+export const HYDRATATION = 'negebauer/hydratation/HYDRATATION'
 
 // Initial state
 const initialState = {
@@ -15,11 +15,11 @@ const initialState = {
 // Reducer
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case REHYDRATE: {
-      return _.merge(state, { done: true })
-    }
+    // case REHYDRATE: {
+    //   return _.merge(state, { done: true })
+    // }
     case HYDRATATION: {
-      return _.merge(state, action.payload)
+      return _.merge(state, { ...action.payload, done: true })
     }
     default: {
       return state
@@ -28,12 +28,17 @@ export default function reducer(state = initialState, action) {
 }
 
 // Action creators
-export const hydrate = (store, options) => async dispatch => {
+export const hydrate = (store, options) => async (
+  dispatch,
+  getState,
+  { api }
+) => {
   const dispatchHydrate = ({ error, persistor }) =>
     dispatch({ type: HYDRATATION, error, persistor })
   try {
     const persistor = await new Promise((resolve, reject) => {
       const persistor = persistStore(store, options, err => {
+        api.configToken(getState().user.api_key)
         if (err) reject(err)
         else resolve(persistor)
       })

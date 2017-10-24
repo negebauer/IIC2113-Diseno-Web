@@ -104,7 +104,6 @@ NewExperience.propTypes = {
   api_key: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
-  fetchExperiences: PropTypes.func.isRequired,
   replace: PropTypes.func.isRequired,
   createExperience: PropTypes.func.isRequired,
 }

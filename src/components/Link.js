@@ -40,13 +40,19 @@ export const LinkNav = styled(RouterLink)`
 `
 
 const Link = ({ to, onClick, children, href }) =>
-  onClick ? (
-    <LinkAction onClick={onClick}>{children}</LinkAction>
-  ) : href ? (
-    <LinkHref href={href}>{children}</LinkHref>
-  ) : to ? (
-    <LinkNav to={to}>{children}</LinkNav>
-  ) : null
+  onClick
+    ? <LinkAction onClick={onClick}>
+        {children}
+      </LinkAction>
+    : href
+      ? <LinkHref href={href}>
+          {children}
+        </LinkHref>
+      : to
+        ? <LinkNav to={to}>
+            {children}
+          </LinkNav>
+        : null
 
 Link.propTypes = {
   to: PropTypes.string,
@@ -55,14 +61,11 @@ Link.propTypes = {
   href: PropTypes.string,
 }
 
-export const LinkPaddedStyle = styled.div`
-  padding: 6px;
-`
+export const LinkPaddedStyle = styled.div`padding: 6px;`
 
-export const LinkPadded = props => (
+export const LinkPadded = props =>
   <LinkPaddedStyle>
     <Link {...props} />
   </LinkPaddedStyle>
-)
 
 export default Link

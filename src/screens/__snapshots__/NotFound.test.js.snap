@@ -78,7 +78,7 @@ exports[`matches snapshot 1`] = `
                 >
                   <styled.div>
                     <div
-                      className="sc-bxivhb fTUYGF"
+                      className="sc-bxivhb cVWkUG"
                     >
                       <Link
                         onClick={[Function]}
@@ -102,7 +102,7 @@ exports[`matches snapshot 1`] = `
                 >
                   <styled.div>
                     <div
-                      className="sc-bxivhb fTUYGF"
+                      className="sc-bxivhb cVWkUG"
                     >
                       <Link
                         to="/"

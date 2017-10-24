@@ -330,17 +330,14 @@ exports[`matches snapshot 1`] = `
                             className="sc-gzVnrw ibZhkv"
                           >
                             <HelmetWrapper
-                              defer={true}
                               encodeSpecialCharacters={true}
                             >
                               <SideEffect(NullComponent)
-                                defer={true}
                                 encodeSpecialCharacters={true}
                                 title="IIC2113 Web"
                                 titleAttributes={Object {}}
                               >
                                 <NullComponent
-                                  defer={true}
                                   encodeSpecialCharacters={true}
                                   title="IIC2113 Web"
                                   titleAttributes={Object {}}

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'react-router-redux'
 import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
-import _ from 'lodash/fp/object'
+// import _ from 'lodash/fp/object'
 import NewExperience from './NewExperience'
 import configureStore from '../redux/store'
 

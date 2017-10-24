@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <ConnectedRouter
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Experiences)>
+        <Experiences
+          api_key=""
+          error=""
+          experiences={Array []}
+          fetchExperiences={[Function]}
+          loading={false}
+        >
+          <div>
+            <div
+              className="container"
+            >
+              <div
+                className="row"
+              >
+                <h2
+                  className="header"
+                >
+                  Experiencias
+                </h2>
+                <a
+                  className="btn-floating btn-large waves-effect waves-light red"
+                >
+                  <i
+                    className="material-icons"
+                  >
+                    <Link
+                      replace={false}
+                      to="/newexperience"
+                    >
+                      <a
+                        href="/newexperience"
+                        onClick={[Function]}
+                      >
+                        add
+                      </a>
+                    </Link>
+                  </i>
+                </a>
+                <table
+                  className="bordered responsive-table"
+                >
+                  <thead>
+                    <tr>
+                      <th>
+                        Nombre
+                      </th>
+                      <th>
+                        Descripcion
+                      </th>
+                      <th>
+                        Agregar usuario
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody />
+                </table>
+              </div>
+            </div>
+          </div>
+        </Experiences>
+      </Connect(Experiences)>
+    </Router>
+  </ConnectedRouter>
+</Provider>
+`;

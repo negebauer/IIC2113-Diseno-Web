@@ -1,6 +1,3 @@
-// Maybe check
-// https://github.com/Gethyl/ReactReduxTestingUsingJestEnzyme/blob/master/__test__/Home.spec.js
-
 import React from 'react'
 import configureStore from '../redux/store'
 import { shallow, mount } from 'enzyme'

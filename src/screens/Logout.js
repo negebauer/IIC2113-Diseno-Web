@@ -17,7 +17,7 @@ const mapDispatchToProps = {
   logout,
 }
 
-class Logout extends Component {
+export class Logout extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -33,7 +33,11 @@ class Logout extends Component {
 
   render() {
     devlog('Logout', this.props)
-    return <div className="container" />
+    return (
+      <div className="container">
+        <h1>Login out...</h1>
+      </div>
+    )
   }
 }
 

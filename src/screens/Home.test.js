@@ -1,7 +1,7 @@
 import React from 'react'
-import configureStore from '../redux/store'
 import { shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json'
+import configureStore from '../redux/store'
 import Home from './Home'
 
 let initialState

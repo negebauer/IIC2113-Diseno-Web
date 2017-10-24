@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<Logout
+  api_key=""
+  error=""
+  loading={false}
+  logout={[Function]}
+  replace={[Function]}
+>
+  <div
+    className="container"
+  >
+    <h1>
+      Login out...
+    </h1>
+  </div>
+</Logout>
+`;

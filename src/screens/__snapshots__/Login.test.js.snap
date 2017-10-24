@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <ConnectedRouter
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Login)>
+        <Login
+          api_key=""
+          error=""
+          loading={false}
+          login={[Function]}
+          replace={[Function]}
+          saveUser={[Function]}
+        >
+          <div
+            className="container"
+          >
+            <div
+              className="row"
+              id="login"
+            >
+              <form
+                className="col s12"
+              >
+                <h2
+                  className="header"
+                >
+                  Login
+                </h2>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="input-field col s12"
+                  >
+                    <input
+                      className="validate"
+                      id="mail"
+                      name="mail"
+                      onChange={[Function]}
+                      type="email"
+                      value=""
+                    />
+                    <label
+                      htmlFor="email"
+                    >
+                      Email
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="input-field col s12"
+                  >
+                    <input
+                      className="validate"
+                      id="password"
+                      name="password"
+                      onChange={[Function]}
+                      type="password"
+                      value=""
+                    />
+                    <label
+                      htmlFor="password"
+                    >
+                      Password
+                    </label>
+                  </div>
+                </div>
+                <button
+                  className="waves-effect waves-light btn-large"
+                  onClick={[Function]}
+                >
+                  Login
+                </button>
+              </form>
+            </div>
+          </div>
+        </Login>
+      </Connect(Login)>
+    </Router>
+  </ConnectedRouter>
+</Provider>
+`;

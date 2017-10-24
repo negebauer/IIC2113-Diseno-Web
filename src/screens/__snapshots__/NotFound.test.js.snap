@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <ConnectedRouter
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(NotFound)>
+        <NotFound
+          goBack={[Function]}
+        >
+          <Styled(styled.div)>
+            <styled.div
+              className="sc-bZQynM hNKQSy"
+            >
+              <div
+                className="sc-bZQynM hNKQSy sc-ifAKCX kFClOg"
+              >
+                <h1>
+                  404
+                </h1>
+                <h3>
+                  Uh.. parece que te perdiste
+                </h3>
+                <Component
+                  onClick={[Function]}
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bxivhb cVWkUG"
+                    >
+                      <Link
+                        onClick={[Function]}
+                      >
+                        <styled.div
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="sc-bdVaJa etGGGl"
+                            onClick={[Function]}
+                          >
+                            Volver a página anterior
+                          </div>
+                        </styled.div>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Component>
+                <Component
+                  to="/"
+                >
+                  <styled.div>
+                    <div
+                      className="sc-bxivhb cVWkUG"
+                    >
+                      <Link
+                        to="/"
+                      >
+                        <Styled(Link)
+                          to="/"
+                        >
+                          <Link
+                            className="sc-htpNat ipJcUy"
+                            replace={false}
+                            to="/"
+                          >
+                            <a
+                              className="sc-htpNat ipJcUy"
+                              href="/"
+                              onClick={[Function]}
+                            >
+                              Ir a página de inicio
+                            </a>
+                          </Link>
+                        </Styled(Link)>
+                      </Link>
+                    </div>
+                  </styled.div>
+                </Component>
+              </div>
+            </styled.div>
+          </Styled(styled.div)>
+        </NotFound>
+      </Connect(NotFound)>
+    </Router>
+  </ConnectedRouter>
+</Provider>
+`;

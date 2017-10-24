@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <ConnectedRouter
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "length": 1,
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "length": 1,
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "/",
+            "search": "",
+            "state": undefined,
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(NewExperience)>
+        <NewExperience
+          api_key=""
+          createExperience={[Function]}
+          error=""
+          loading={false}
+          replace={[Function]}
+        >
+          <div
+            className="container"
+          >
+            <div
+              className="row"
+            >
+              <form
+                className="col s12"
+              >
+                <h2
+                  className="header"
+                >
+                  Nueva Experiencia
+                </h2>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="input-field col s12"
+                  >
+                    <input
+                      className="validate"
+                      id="name"
+                      name="name"
+                      onChange={[Function]}
+                      type="text"
+                      value=""
+                    />
+                    <label
+                      htmlFor="name"
+                    >
+                      Name
+                    </label>
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="input-field col s12"
+                  >
+                    <input
+                      className="validate"
+                      id="description"
+                      name="description"
+                      onChange={[Function]}
+                      type="text"
+                      value=""
+                    />
+                    <label
+                      htmlFor="description"
+                    >
+                      Descripcion
+                    </label>
+                  </div>
+                </div>
+                <button
+                  className="waves-effect waves-light btn-large"
+                  onClick={[Function]}
+                >
+                  Agregar experiencia
+                </button>
+              </form>
+            </div>
+          </div>
+        </NewExperience>
+      </Connect(NewExperience)>
+    </Router>
+  </ConnectedRouter>
+</Provider>
+`;

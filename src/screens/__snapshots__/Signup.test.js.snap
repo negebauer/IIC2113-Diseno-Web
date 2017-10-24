@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<Signup
+  api_key=""
+  error=""
+  loading={false}
+  replace={[Function]}
+  saveUser={[Function]}
+  signup={[Function]}
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+      id="signup"
+    >
+      <form
+        className="col s12"
+      >
+        <h2
+          className="header"
+        >
+          Signup
+        </h2>
+        <div
+          className="row"
+        >
+          <div
+            className="input-field col s12"
+          >
+            <input
+              className="validate"
+              id="first_name"
+              name="name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              htmlFor="name"
+            >
+              Nombre
+            </label>
+          </div>
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="input-field col s12"
+          >
+            <input
+              className="validate"
+              id="mail"
+              name="mail"
+              onChange={[Function]}
+              type="email"
+              value=""
+            />
+            <label
+              htmlFor="email"
+            >
+              Email
+            </label>
+          </div>
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="input-field col s12"
+          >
+            <input
+              className="validate"
+              id="password"
+              name="password"
+              onChange={[Function]}
+              type="password"
+              value=""
+            />
+            <label
+              htmlFor="password"
+            >
+              Password
+            </label>
+          </div>
+        </div>
+        <div
+          className="row"
+        >
+          <div
+            className="input-field col s12"
+          >
+            <input
+              className="validate"
+              id="password_confirmation"
+              name="password_confirmation"
+              onChange={[Function]}
+              type="password"
+              value=""
+            />
+            <label
+              htmlFor="password"
+            >
+              Password Confirmation
+            </label>
+          </div>
+        </div>
+        <button
+          className="waves-effect waves-light btn-large"
+          onClick={[Function]}
+        >
+          Signup
+        </button>
+      </form>
+    </div>
+  </div>
+</Signup>
+`;

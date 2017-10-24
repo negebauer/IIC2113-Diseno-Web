@@ -18,7 +18,7 @@ const mapDispatchToProps = {
   replace,
 }
 
-class Signup extends Component {
+export class Signup extends Component {
   constructor(props) {
     super(props)
     this.state = {

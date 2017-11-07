@@ -12,14 +12,13 @@ const mapDispatchToProps = {
   goBack,
 }
 
-const NotFound = ({ goBack }) => (
+const NotFound = ({ goBack }) =>
   <ContainerCenter>
     <h1>404</h1>
     <h3>Uh.. parece que te perdiste</h3>
     <LinkPadded onClick={goBack}>Volver a página anterior</LinkPadded>
     <LinkPadded to="/">Ir a página de inicio</LinkPadded>
   </ContainerCenter>
-)
 
 NotFound.propTypes = {
   goBack: PropTypes.func.isRequired,

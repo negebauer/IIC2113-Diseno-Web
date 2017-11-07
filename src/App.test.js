@@ -5,7 +5,7 @@ import React from 'react'
 import createHistory from 'history/createBrowserHistory'
 import configureStore from './redux/store'
 import { shallow, mount } from 'enzyme'
-// import toJson from 'enzyme-to-json'
+import toJson from 'enzyme-to-json'
 import _ from 'lodash/fp/object'
 import App from './App'
 
@@ -30,12 +30,12 @@ it('mount renders without crashing', () => {
   mount(<App store={store} options={options} history={history} />)
 })
 
-// it('matches snapshot', () => {
-//   const wrapper = mount(
-//     <App store={store} options={options} history={history} />
-//   )
-//   expect(toJson(wrapper)).toMatchSnapshot()
-// })
+it('matches snapshot', () => {
+  const wrapper = mount(
+    <App store={store} options={options} history={history} />
+  )
+  expect(toJson(wrapper)).toMatchSnapshot()
+})
 
 it('renders children', () => {
   const wrapper = mount(

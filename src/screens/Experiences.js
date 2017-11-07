@@ -34,7 +34,9 @@ class Experiences extends Component {
       <div>
         <div className="container">
           <div className="row">
-            <h2 className="header">{message}</h2>
+            <h2 className="header">
+              {message}
+            </h2>
             <a className="btn-floating btn-large waves-effect waves-light red">
               <i className="material-icons">
                 <Link to="/newexperience">add</Link>
@@ -50,13 +52,13 @@ class Experiences extends Component {
               </thead>
 
               <tbody>
-                {this.props.experiences.map(e => (
+                {this.props.experiences.map(e =>
                   <ExperienceTableItem
                     key={e.id}
                     name={e.name}
                     description={e.description}
                   />
-                ))}
+                )}
               </tbody>
             </table>
           </div>

@@ -5,7 +5,7 @@ import React from 'react'
 import createHistory from 'history/createBrowserHistory'
 import configureStore from './redux/store'
 import { shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json'
+// import toJson from 'enzyme-to-json'
 import _ from 'lodash/fp/object'
 import App from './App'
 

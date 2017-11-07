@@ -1,6 +1,6 @@
 import Api from './Api'
 
-const url = 'https://api.ipify.org?format=json'
+const url = 'https://jsonplaceholder.typicode.com'
 const api = new Api(url)
 
 it('sets urls', () => {
@@ -9,13 +9,15 @@ it('sets urls', () => {
 })
 
 it('gets', async () => {
-  const ip = await api.get('')
-  expect(ip).toHaveProperty('ip')
+  const response = await api.get('/posts/1')
+  expect(response).toHaveProperty('body')
 })
 
 it('posts', async () => {
-  const ip = await api.post('', {})
-  expect(ip).toHaveProperty('ip')
+  const a = 'a'
+  const response = await api.post('/posts', { a })
+  expect(response).toHaveProperty('a')
+  expect(response.a).toMatch(a)
 })
 
 it('fails parsing invalid json', async () => {

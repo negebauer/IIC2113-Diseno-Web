@@ -56,9 +56,7 @@ class Login extends Component {
       <div className="container">
         <div id="login" className="row">
           <form className="col s12" ref={f => (this.form = f)}>
-            <h2 className="header">
-              {message}
-            </h2>
+            <h2 className="header">{message}</h2>
             <div className="row">
               <div className="input-field col s12">
                 <input

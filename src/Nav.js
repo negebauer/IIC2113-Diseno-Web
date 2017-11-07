@@ -17,15 +17,14 @@ const siteTitle = title => (title ? `IIC2113 | ${title}` : 'IIC2113 Web')
 
 const Body = styled.div``
 
-const Route = props =>
+const Route = props => (
   <Body>
     <Helmet>
-      <title>
-        {siteTitle(props.title)}
-      </title>
+      <title>{siteTitle(props.title)}</title>
     </Helmet>
     <RouteDom {...props} />
   </Body>
+)
 
 Route.propTypes = {
   title: PropTypes.string,
@@ -79,9 +78,7 @@ class Navigator extends Component {
             </a>
           </li>
           <li>
-            <a>
-              {this.props.mail}
-            </a>
+            <a>{this.props.mail}</a>
           </li>
         </ul>
       )

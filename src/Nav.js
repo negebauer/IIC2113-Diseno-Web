@@ -39,60 +39,35 @@ const mapDispatchToProps = {}
 
 class Navigator extends Component {
   render() {
-    let loading = null
-    if (this.props.loading) {
-      loading = (
-        <div className="progress">
-          <div className="indeterminate" />
-        </div>
-      )
-    }
-
-    let links = null
-    if (!this.props.mail) {
-      links = (
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li>
-            <a>
-              <Link to="/signup">Signup</Link>
-            </a>
-          </li>
-          <li>
-            <a>
-              <Link to="/login">Login</Link>
-            </a>
-          </li>
-        </ul>
-      )
-    } else {
-      links = (
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li>
-            <a data-hover="true">
-              <Link to="/experiences">Experiences</Link>
-            </a>
-          </li>
-          <li>
-            <a>
-              <Link to="/logout">Logout</Link>
-            </a>
-          </li>
-          <li>
-            <a>{this.props.mail}</a>
-          </li>
-        </ul>
-      )
-    }
-
     return (
       <div>
         <nav>
           <div className="nav-wrapper">
-            <a className="brand-logo">
-              <Link to="/">Logo</Link>
-            </a>
-            {links}
-            {loading}
+            <Link className="brand-logo" to="/">
+              Logo
+            </Link>
+            {
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <li>
+                  {!this.props.mail && <Link to="/signup">Signup</Link>}
+                  {this.props.mail && (
+                    <Link to="/experiences">Experiences</Link>
+                  )}
+                </li>
+                <li>
+                  {this.props.mail && <Link to="/logout">Logout</Link>}
+                  {!this.props.mail && <Link to="/login">Login</Link>}
+                </li>
+                <li>
+                  <a>{this.props.mail}</a>
+                </li>
+              </ul>
+            }
+            {this.props.loading && (
+              <div className="progress">
+                <div className="indeterminate" />
+              </div>
+            )}
           </div>
         </nav>
         <Switch>

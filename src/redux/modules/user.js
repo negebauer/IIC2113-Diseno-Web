@@ -45,7 +45,11 @@ export default function reducer(state = initialState, action) {
       return _.merge(state, { ...payload, loading: false })
     }
     case LOGIN_REJECTED: {
-      return _.merge(state, { error: payload.message, loading: false })
+      return _.merge(state, {
+        ...initialState,
+        error: payload.message,
+        loading: false,
+      })
     }
     case SIGNUP_PENDING: {
       return _.merge(state, { loading: true })
@@ -54,7 +58,11 @@ export default function reducer(state = initialState, action) {
       return _.merge(state, { ...payload, loading: false })
     }
     case SIGNUP_REJECTED: {
-      return _.merge(state, { error: payload.message, loading: false })
+      return _.merge(state, {
+        ...initialState,
+        error: payload.message,
+        loading: false,
+      })
     }
     case FETCH_EXPERIENCES_PENDING: {
       return _.merge(state, { loading: true })

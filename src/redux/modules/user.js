@@ -65,14 +65,8 @@ export default function reducer(state = initialState, action) {
     case FETCH_EXPERIENCES_REJECTED: {
       return _.merge(state, { error: payload.message, loading: false })
     }
-    case LOGOUT_PENDING: {
-      return _.merge(state, { loading: true })
-    }
-    case LOGOUT_FULFILLED: {
+    case LOGOUT_PENDING || LOGOUT_REJECTED || LOGOUT_FULFILLED: {
       return _.merge(initialState)
-    }
-    case LOGOUT_REJECTED: {
-      return _.merge(state, { error: payload.message, loading: false })
     }
     case REHYDRATE: {
       return _.merge(state, {
@@ -116,5 +110,5 @@ export const fetchExperiences = () => (dispatch, getState, { api }) =>
 export const logout = () => (dispatch, getState, { api }) =>
   dispatch({
     type: LOGOUT,
-    payload: api.logout(),
+    payload: api.logout().catch(() => {}),
   })

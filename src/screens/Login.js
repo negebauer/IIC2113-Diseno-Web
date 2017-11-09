@@ -39,8 +39,7 @@ class Login extends Component {
     devlog(this.state.mail)
     devlog(this.state.password)
     this.props.saveUser(this.state)
-    const { name, mail, password } = this.state
-    this.props.login({ name, mail, password })
+    this.props.login(this.state)
   }
 
   handleChange = ev =>

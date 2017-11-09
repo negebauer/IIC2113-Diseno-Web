@@ -22,6 +22,7 @@ class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      name: '',
       mail: '',
       password: '',
     }
@@ -38,7 +39,8 @@ class Login extends Component {
     devlog(this.state.mail)
     devlog(this.state.password)
     this.props.saveUser(this.state)
-    this.props.login(this.state)
+    const { name, mail, password } = this.state
+    this.props.login({ name, mail, password })
   }
 
   handleChange = ev =>

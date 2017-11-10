@@ -8,6 +8,7 @@ import { replace } from '../redux/modules/router'
 
 const mapStateToProps = state => ({
   loading: state.user.loading,
+  creating: state.experience.loading,
   api_key: state.user.api_key,
   error: state.user.error,
 })
@@ -23,12 +24,11 @@ class NewExperience extends Component {
     this.state = {
       name: '',
       description: '',
-      sentExperience: false,
     }
   }
 
-  componentDidUpdate = () => {
-    if (this.state.sentExperience) {
+  componentDidUpdate = prevProps => {
+    if (prevProps.creating && !this.props.creating) {
       this.props.replace('/experiences')
     }
   }
@@ -37,9 +37,6 @@ class NewExperience extends Component {
     e.preventDefault()
     devlog(this.state.mail)
     devlog(this.state.password)
-    this.setState({
-      sentExperience: true,
-    })
     this.props.createExperience(this.state)
   }
 
@@ -51,7 +48,7 @@ class NewExperience extends Component {
   render() {
     devlog('Login', this.props)
     const message =
-      (this.props.loading && 'Cargando') ||
+      (this.props.creating && 'Cargando') ||
       (this.props.error && this.props.error) ||
       'Nueva Experiencia'
     return (
@@ -102,6 +99,7 @@ NewExperience.propTypes = {
   api_key: PropTypes.string.isRequired,
   error: PropTypes.string.isRequired,
   loading: PropTypes.bool.isRequired,
+  creating: PropTypes.bool.isRequired,
   replace: PropTypes.func.isRequired,
   createExperience: PropTypes.func.isRequired,
 }

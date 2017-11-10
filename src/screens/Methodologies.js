@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import { devlog } from '../utils/log'
 import { fetchMethodologies } from '../redux/modules/methodologies'
 
+import Methodology from '../components/Methodology'
+
 const mapStateToProps = state => ({
   methodologies: state.methodologies.methodologies,
   loading: state.methodologies.loading,
@@ -18,11 +20,21 @@ const mapDispatchToProps = {
 class Methodologies extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      methodology: undefined,
+    }
   }
 
   componentDidMount = () => {
     this.props.fetchMethodologies()
+  }
+
+  showPreview = methodology => {
+    this.setState({ methodology: methodology })
+  }
+
+  closePreview = () => {
+    this.setState({ methodology: undefined })
   }
 
   render() {
@@ -31,6 +43,7 @@ class Methodologies extends Component {
       (this.props.loading && 'Cargando') ||
       (this.props.error && this.props.error) ||
       'Metodologias'
+    const M = this.state.methodology || { id: -1 }
     return (
       <div>
         <div className="container">
@@ -40,27 +53,32 @@ class Methodologies extends Component {
               <thead>
                 <tr>
                   <th>Nombre</th>
-                  <th>Descripcion</th>
-                  <th>Agregar usuario</th>
+                  <th>Ver en vivo</th>
+                  <th>Enlace externo</th>
                 </tr>
               </thead>
-
               <tbody>
                 {this.props.methodologies.map(m => (
-                  <tr key={m.id}>
-                    <td>{m.name}</td>
-                    <td>{m.id}</td>
-                    <td>
-                      <a className="waves-effect waves-light btn">
-                        <i className="material-icons right">add</i>Agregar
-                      </a>
-                    </td>
-                  </tr>
+                  <Methodology
+                    key={m.id}
+                    methodology={m}
+                    previewOn={m.id === M.id}
+                    showPreview={this.showPreview}
+                    closePreview={this.closePreview}
+                  />
                 ))}
               </tbody>
             </table>
           </div>
         </div>
+        {this.state.methodology && (
+          <div className="container">
+            <iframe
+              src={this.state.methodology.link}
+              style={{ width: '100%', height: '600px' }}
+            />
+          </div>
+        )}
       </div>
     )
   }

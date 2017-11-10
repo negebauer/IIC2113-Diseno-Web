@@ -35,14 +35,12 @@ class Experience extends Component {
       addingUser: false,
       addingMethodology: false,
       user_mail: '',
-      methodologyEvaluation: {
-        applicable: 'Not sure',
-        usefulness: 'indispensable',
-        relevance: 'Important for our experience',
-        feasibility: 'feasibility of the selection',
-        experience_id: -1,
-        methood_id: -1,
-      },
+      applicable: 'Not sure',
+      usefulness: 'indispensable',
+      relevance: 'Important for our experience',
+      feasibility: 'feasibility of the selection',
+      experience_id: -1,
+      methood_id: -1,
       selectedMethodology: undefined,
     }
   }
@@ -124,6 +122,17 @@ class Experience extends Component {
               )}
             {addingMethodology &&
               selectedMethodology && (
+                // TODO: AQUI PONER FORMULARIO PARA RELLENAR
+                // {
+                //   applicable: "Not sure",
+                //   usefulness: "indispensable",
+                //   relevance: "Important for our experience",
+                //   feasibility: "feasibility of the selection",
+                //   experience_id: :experience_id,
+                //   methood_id: 11,
+                // }
+                //
+                // y modificar el state como ya sabes
                 <div>{this.state.selectedMethodology.name}</div>
               )}
             <div

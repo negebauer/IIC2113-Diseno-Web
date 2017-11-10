@@ -75,4 +75,11 @@ export default class Api {
 
   addUserExperience = async (experienceId, user_mail) =>
     this.post(`/experiences/${experienceId}/users`, { user_mail })
+
+  fetchExperienceMethodologies = async experience => {
+    const methodologies = await this.get(
+      `/experiences/${experience.id}/methodologies`
+    )
+    return { ...experience, methodologies }
+  }
 }

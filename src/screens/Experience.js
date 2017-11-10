@@ -4,10 +4,16 @@ import { connect } from 'react-redux'
 // import { Link } from 'react-router-dom'
 
 import { devlog } from '../utils/log'
-import { fetchExperiences } from '../redux/modules/user'
+import {
+  fetchExperiences,
+  fetchExperienceMethodologies,
+} from '../redux/modules/user'
 import { addUser } from '../redux/modules/experience'
 
+import Methodology from '../components/Methodology'
+
 const mapStateToProps = (state, props) => ({
+  methodologies: state.methodologies.methodologies,
   experience: state.user.experiences.filter(
     e => e.id === Number(props.match.params.id) || []
   )[0],
@@ -19,14 +25,24 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = {
   fetchExperiences,
   addUser,
+  fetchExperienceMethodologies,
 }
 
 class Experience extends Component {
   constructor() {
     super()
     this.state = {
-      adding: false,
+      addingUser: false,
+      addingMethodology: false,
       user_mail: '',
+      methodologyEvaluation: {
+        applicable: 'Not sure',
+        usefulness: 'indispensable',
+        relevance: 'Important for our experience',
+        feasibility: 'feasibility of the selection',
+        experience_id: -1,
+        methood_id: -1,
+      },
     }
   }
 
@@ -34,16 +50,20 @@ class Experience extends Component {
 
   componentDidUpdate = prevProps => {
     if (prevProps.addingUser && !this.props.addingUser) {
-      this.setState({ adding: false, user_mail: '' })
+      this.setState({ addingUser: false, user_mail: '' })
       this.loadExperiences()
     }
   }
 
-  loadExperiences = () => this.props.fetchExperiences(this.state)
-
-  toggleAdd = () => {
-    this.setState({ adding: !this.state.adding })
+  loadExperiences = () => {
+    this.props.fetchExperiences(this.state)
+    this.props.fetchExperienceMethodologies(this.props.experience)
   }
+
+  toggleAddUser = () => this.setState({ addingUser: !this.state.addingUser })
+
+  toggleAddMethodology = () =>
+    this.setState({ addingMethodology: !this.state.addingMethodology })
 
   handleChange = ev =>
     this.setState({
@@ -57,7 +77,7 @@ class Experience extends Component {
 
   render() {
     devlog('Experience', this.props)
-    const { adding } = this.state
+    const { addingUser, addingMethodology } = this.state
     const { loading, error, experience } = this.props
     const message =
       (loading && 'Cargando') ||
@@ -73,8 +93,8 @@ class Experience extends Component {
             <h4>Descripción</h4>
             <h4>{experience.description}</h4>
 
-            <h5>Usuarios</h5>
-            {adding && (
+            <h5>Metodologías asociadas</h5>
+            {addingMethodology && (
               <form className="col s12">
                 <div className="row">
                   <div className="input-field col s12">
@@ -98,11 +118,65 @@ class Experience extends Component {
               </form>
             )}
             <div
-              onClick={this.toggleAdd}
+              onClick={this.toggleAddMetho}
               className="waves-effect waves-light btn"
             >
-              <i className="material-icons left">{adding ? 'cancel' : 'add'}</i>
-              {adding ? 'Cancelar' : 'Agregar usuario'}
+              <i className="material-icons left">
+                {addingMethodology ? 'cancel' : 'add'}
+              </i>
+              {addingMethodology ? 'Cancelar' : 'Agregar metodología'}
+            </div>
+            <table className="bordered responsive-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Enlace externo</th>
+                </tr>
+              </thead>
+              <tbody>
+                {(experience.methodologies || []).map(m => (
+                  <Methodology
+                    key={m.id}
+                    methodology={m}
+                    previewOn={false}
+                    showPreview={() => {}}
+                    closePreview={() => {}}
+                  />
+                ))}
+              </tbody>
+            </table>
+            <h5>Usuarios</h5>
+            {addingUser && (
+              <form className="col s12">
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input
+                      id="user_mail"
+                      type="email"
+                      className="validate"
+                      name="user_mail"
+                      value={this.state.user_mail}
+                      onChange={this.handleChange}
+                    />
+                    <label htmlFor="email">Email</label>
+                  </div>
+                </div>
+                <button
+                  className="waves-effect waves-light btn-large"
+                  onClick={this.submit}
+                >
+                  Agregar
+                </button>
+              </form>
+            )}
+            <div
+              onClick={this.toggleAddUser}
+              className="waves-effect waves-light btn"
+            >
+              <i className="material-icons left">
+                {addingUser ? 'cancel' : 'add'}
+              </i>
+              {addingUser ? 'Cancelar' : 'Agregar usuario'}
             </div>
             <table className="bordered responsive-table">
               <thead>
@@ -134,8 +208,10 @@ Experience.propTypes = {
   match: PropTypes.object.isRequired,
   experience: PropTypes.object.isRequired,
   fetchExperiences: PropTypes.func.isRequired,
+  fetchExperienceMethodologies: PropTypes.func.isRequired,
   addUser: PropTypes.func.isRequired,
   addingUser: PropTypes.bool.isRequired,
+  methodologies: PropTypes.array.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Experience)

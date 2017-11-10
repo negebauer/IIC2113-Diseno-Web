@@ -103,7 +103,7 @@ class Experience extends Component {
             <h3>{experience.name}</h3>
             <h4>Descripción</h4>
             <h4>{experience.description}</h4>
-            <h5>Metodologías asociadas</h5>
+            <h5>Metodología asociada</h5>
             {addingMethodology &&
               !selectedMethodology && (
                 <div>
@@ -178,8 +178,8 @@ class Experience extends Component {
                     key={m.id}
                     methodology={m}
                     previewOn={false}
-                    showPreview={() => {}}
-                    closePreview={() => {}}
+                    showPreview={() => { }}
+                    closePreview={() => { }}
                   />
                 ))}
               </tbody>

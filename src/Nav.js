@@ -5,14 +5,15 @@ import { Route as RouteDom, Link, Switch, withRouter } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 
+import Experience from './screens/Experience'
+import Experiences from './screens/Experiences'
 import Home from './screens/Home'
 import Login from './screens/Login'
 import Logout from './screens/Logout'
 import Methodologies from './screens/Methodologies'
-import Signup from './screens/Signup'
-import Experiences from './screens/Experiences'
 import NewExperience from './screens/NewExperience'
 import NotFound from './screens/NotFound'
+import Signup from './screens/Signup'
 
 const siteTitle = title => (title ? `IIC2113 | ${title}` : 'IIC2113 Web')
 
@@ -87,9 +88,15 @@ class Navigator extends Component {
             title="Methodologies"
           />
           <Route
+            exact
             path="/experiences"
             component={Experiences}
             title="Experiences"
+          />
+          <Route
+            path="/experiences/:id"
+            component={Experience}
+            title="Experience"
           />
           <Route
             path="/newexperience"

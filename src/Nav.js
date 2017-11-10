@@ -98,12 +98,12 @@ class Navigator extends Component {
               component={Experiences}
               title="Experiences"
             />
+            <Route
+              path="/newexperience"
+              component={NewExperience}
+              title="New Experience"
+            />
           </Switch>
-          <Route
-            path="/newexperience"
-            component={NewExperience}
-            title="New Experience"
-          />
           <Route component={NotFound} title="Not found" />
         </Switch>
       </div>

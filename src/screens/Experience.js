@@ -24,15 +24,21 @@ class Experience extends Component {
     this.state = {
       adding: false,
       user_mail: '',
+      loading: '',
     }
   }
 
-  componentWillMount = () => {
-    this.props.fetchExperiences(this.state)
+  componentWillMount = () => this.loadExperiences()
+
+  loadExperiences = () => this.props.fetchExperiences(this.state)
+
+  toggleAdd = () => {
+    this.setState({ adding: !this.state.adding })
   }
 
   render() {
     devlog('Experience', this.props)
+    const { adding } = this.state
     const { loading, error, experience } = this.props
     const message =
       (loading && 'Cargando') ||
@@ -49,6 +55,13 @@ class Experience extends Component {
             <h4>{experience.description}</h4>
 
             <h5>Usuarios</h5>
+            <div
+              onClick={this.toggleAdd}
+              className="waves-effect waves-light btn"
+            >
+              <i className="material-icons left">{adding ? 'cancel' : 'add'}</i>
+              {adding ? 'Cancelar' : 'Agregar usuario'}
+            </div>
             <table className="bordered responsive-table">
               <thead>
                 <tr>

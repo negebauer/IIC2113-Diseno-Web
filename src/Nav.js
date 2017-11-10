@@ -33,7 +33,10 @@ Route.propTypes = {
 
 const mapStateToProps = state => ({
   mail: state.user.mail,
-  loading: state.user.loading,
+  loading:
+    state.user.loading ||
+    state.experience.loading ||
+    state.methodologies.loading,
 })
 
 const mapDispatchToProps = {}

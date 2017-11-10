@@ -53,7 +53,6 @@ class Methodologies extends Component {
               <thead>
                 <tr>
                   <th>Nombre</th>
-                  <th>Descripción</th>
                   <th>Ver en vivo</th>
                   <th>Enlace externo</th>
                 </tr>

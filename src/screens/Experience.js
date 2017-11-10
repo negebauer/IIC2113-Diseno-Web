@@ -43,6 +43,7 @@ class Experience extends Component {
         experience_id: -1,
         methood_id: -1,
       },
+      selectedMethodology: {},
     }
   }
 
@@ -76,9 +77,15 @@ class Experience extends Component {
   }
 
   render() {
-    devlog('Experience', this.props)
+    devlog('Experience', this.state, this.props)
     const { addingUser, addingMethodology } = this.state
-    const { loading, error, experience } = this.props
+    const { loading, error, experience, methodologies } = this.props
+    const experienceMethodologiesIds = (experience.methodologies || []).map(
+      m => m.id
+    )
+    const selectableMethodologies = methodologies.filter(
+      m => experienceMethodologiesIds.indexOf(m.id) === -1
+    )
     const message =
       (loading && 'Cargando') ||
       (error && error) ||
@@ -96,29 +103,38 @@ class Experience extends Component {
             <h5>Metodologías asociadas</h5>
             {addingMethodology && (
               <form className="col s12">
-                <div className="row">
-                  <div className="input-field col s12">
-                    <input
-                      id="user_mail"
-                      type="email"
-                      className="validate"
-                      name="user_mail"
-                      value={this.state.user_mail}
-                      onChange={this.handleChange}
-                    />
-                    <label htmlFor="email">Email</label>
-                  </div>
+                <div
+                  className="input-field col s12"
+                  style={{ width: '100px', height: '100px', padding: '10px' }}
+                >
+                  <select
+                    style={{ width: '100px', height: '40px', padding: '10px' }}
+                    className="browser-default"
+                    name="selectedMethodology"
+                    value={this.state.selectedMethodology}
+                    onChange={this.handleChange}
+                  >
+                    <option value="" disabled selected>
+                      Elegir una metodología
+                    </option>
+                    {selectableMethodologies.map(m => (
+                      <option key={m.id} value={m.id}>
+                        {m.name}
+                      </option>
+                    ))}
+                  </select>
+                  <label>Metodología</label>
                 </div>
-                <button
+                {/* <button
                   className="waves-effect waves-light btn-large"
                   onClick={this.submit}
                 >
                   Agregar
-                </button>
+                </button> */}
               </form>
             )}
             <div
-              onClick={this.toggleAddMetho}
+              onClick={this.toggleAddMethodology}
               className="waves-effect waves-light btn"
             >
               <i className="material-icons left">

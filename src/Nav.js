@@ -87,17 +87,18 @@ class Navigator extends Component {
             component={Methodologies}
             title="Methodologies"
           />
-          <Route
-            exact
-            path="/experiences"
-            component={Experiences}
-            title="Experiences"
-          />
-          <Route
-            path="/experiences/:id"
-            component={Experience}
-            title="Experience"
-          />
+          <Switch>
+            <Route
+              path="/experiences/:id"
+              component={Experience}
+              title="Experience"
+            />
+            <Route
+              path="/experiences"
+              component={Experiences}
+              title="Experiences"
+            />
+          </Switch>
           <Route
             path="/newexperience"
             component={NewExperience}

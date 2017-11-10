@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 // import { Link } from 'react-router-dom'
 
 import { devlog } from '../utils/log'
-// import { fetchExperience } from '../redux/modules/user'
-// import ExperienceTableItem from '../components/ExperienceTableItem'
+import { fetchExperiences } from '../redux/modules/user'
 
 const mapStateToProps = (state, props) => ({
   methodology: (state.methodologies.methodologies.filter(
@@ -16,12 +15,12 @@ const mapStateToProps = (state, props) => ({
 })
 
 const mapDispatchToProps = {
-  // fetchExperience,
+  fetchExperiences,
 }
 
 class Experience extends Component {
   componentWillMount = () => {
-    // this.props.fetchExperience(this.state)
+    this.props.fetchExperiences(this.state)
   }
 
   render() {
@@ -50,6 +49,7 @@ Experience.propTypes = {
   loading: PropTypes.bool.isRequired,
   match: PropTypes.object.isRequired,
   methodology: PropTypes.object.isRequired,
+  fetchExperiences: PropTypes.func.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Experience)

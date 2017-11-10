@@ -5,17 +5,20 @@ import { connect } from 'react-redux'
 
 import { devlog } from '../utils/log'
 import { fetchExperiences } from '../redux/modules/user'
+import { addUser } from '../redux/modules/experience'
 
 const mapStateToProps = (state, props) => ({
   experience: state.user.experiences.filter(
     e => e.id === Number(props.match.params.id) || []
   )[0],
   loading: state.experience.loading,
+  addingUser: state.experience.addingUser,
   error: state.experience.error,
 })
 
 const mapDispatchToProps = {
   fetchExperiences,
+  addUser,
 }
 
 class Experience extends Component {
@@ -24,11 +27,17 @@ class Experience extends Component {
     this.state = {
       adding: false,
       user_mail: '',
-      loading: '',
     }
   }
 
   componentWillMount = () => this.loadExperiences()
+
+  componentDidUpdate = prevProps => {
+    if (prevProps.addingUser && !this.props.addingUser) {
+      this.setState({ adding: false, user_mail: '' })
+      this.loadExperiences()
+    }
+  }
 
   loadExperiences = () => this.props.fetchExperiences(this.state)
 
@@ -41,7 +50,10 @@ class Experience extends Component {
       [ev.target.name]: Number(ev.target.value) || ev.target.value,
     })
 
-  submit = () => {}
+  submit = e => {
+    e.preventDefault()
+    this.props.addUser(this.props.experience, this.state.user_mail)
+  }
 
   render() {
     devlog('Experience', this.props)
@@ -122,6 +134,8 @@ Experience.propTypes = {
   match: PropTypes.object.isRequired,
   experience: PropTypes.object.isRequired,
   fetchExperiences: PropTypes.func.isRequired,
+  addUser: PropTypes.func.isRequired,
+  addingUser: PropTypes.bool.isRequired,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Experience)

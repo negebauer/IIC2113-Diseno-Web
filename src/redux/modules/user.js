@@ -60,7 +60,10 @@ export default function reducer(state = initialState, action) {
       return _.merge(state, { loading: true })
     }
     case FETCH_EXPERIENCES_FULFILLED: {
-      return _.merge(state, { experiences: payload, loading: false })
+      return _.merge(state, {
+        experiences: payload,
+        loading: false,
+      })
     }
     case FETCH_EXPERIENCES_REJECTED: {
       return _.merge(state, { error: payload.message, loading: false })

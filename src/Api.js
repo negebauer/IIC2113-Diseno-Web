@@ -72,4 +72,7 @@ export default class Api {
   createExperience = async userData => this.post('/experiences', userData)
 
   logout = async userData => this.delete('/logout', userData)
+
+  addUserExperience = async (experienceId, user_mail) =>
+    this.post(`/experiences/${experienceId}/users`, { user_mail })
 }

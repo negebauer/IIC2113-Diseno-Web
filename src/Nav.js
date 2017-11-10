@@ -8,6 +8,7 @@ import styled from 'styled-components'
 import Home from './screens/Home'
 import Login from './screens/Login'
 import Logout from './screens/Logout'
+import Methodologies from './screens/Methodologies'
 import Signup from './screens/Signup'
 import Experiences from './screens/Experiences'
 import NewExperience from './screens/NewExperience'
@@ -32,83 +33,68 @@ Route.propTypes = {
 
 const mapStateToProps = state => ({
   mail: state.user.mail,
-  loading: state.user.loading,
 })
 
 const mapDispatchToProps = {}
 
 class Navigator extends Component {
   render() {
-    let loading = null
-    if (this.props.loading) {
-      loading = (
-        <div className="progress">
-          <div className="indeterminate" />
-        </div>
-      )
-    }
-
-    let links = null
-    if (!this.props.mail) {
-      links = (
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li>
-            <a>
-              <Link to="/signup">Signup</Link>
-            </a>
-          </li>
-          <li>
-            <a>
-              <Link to="/login">Login</Link>
-            </a>
-          </li>
-        </ul>
-      )
-    } else {
-      links = (
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li>
-            <a data-hover="true">
-              <Link to="/experiences">Experiences</Link>
-            </a>
-          </li>
-          <li>
-            <a>
-              <Link to="/logout">Logout</Link>
-            </a>
-          </li>
-          <li>
-            <a>{this.props.mail}</a>
-          </li>
-        </ul>
-      )
-    }
-
     return (
       <div>
         <nav>
           <div className="nav-wrapper">
-            <a className="brand-logo">
-              <Link to="/">Logo</Link>
-            </a>
-            {links}
-            {loading}
+            <Link className="brand-logo" to="/">
+              Logo
+            </Link>
+            {
+              <ul id="nav-mobile" className="right hide-on-med-and-down">
+                {!this.props.mail && (
+                  <li>
+                    <Link to="/signup">Signup</Link>
+                  </li>
+                )}
+                {this.props.mail && (
+                  <li>
+                    <Link to="/methodologies">Methodologies</Link>
+                  </li>
+                )}
+                {this.props.mail && (
+                  <li>
+                    <Link to="/experiences">Experiences</Link>
+                  </li>
+                )}
+                <li>
+                  {this.props.mail && <Link to="/logout">Logout</Link>}
+                  {!this.props.mail && <Link to="/login">Login</Link>}
+                </li>
+                {this.props.mail && (
+                  <li>
+                    <a>{this.props.mail}</a>
+                  </li>
+                )}
+              </ul>
+            }
           </div>
         </nav>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} title="Login" />
-          <Route path="/signup" component={Signup} title="signup" />
-          <Route path="/logout" component={Logout} title="logout" />
+          <Route path="/signup" component={Signup} title="Signup" />
+          <Route path="/logout" component={Logout} title="Logout" />
+          <Route
+            path="/methodologies"
+            component={Methodologies}
+            title="Methodologies"
+          />
           <Route
             path="/experiences"
             component={Experiences}
-            title="experiences"
+            title="Experiences"
           />
           <Route
             path="/newexperience"
             component={NewExperience}
-            title="newexperience"
+            title="New Experience"
           />
           <Route component={NotFound} title="Not found" />
         </Switch>
@@ -119,7 +105,6 @@ class Navigator extends Component {
 
 Navigator.propTypes = {
   mail: PropTypes.string.isRequired,
-  loading: PropTypes.bool.isRequired,
 }
 
 export default withRouter(

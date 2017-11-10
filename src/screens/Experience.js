@@ -100,10 +100,12 @@ class Experience extends Component {
         <div className="container">
           <div className="row">
             <h2 className="header">{message}</h2>
-            <h3>{experience.name}</h3>
-            <h4>Descripción</h4>
-            <h4>{experience.description}</h4>
-            <h5>Metodología asociada</h5>
+            <h3> {experience.name} </h3>
+            <h4 className="header">Descripción</h4>
+            <h3>{experience.description}</h3>
+            <h5 className="header" style={{ fontWeight: 'bold' }}>
+              Metodología asociada
+            </h5>
             {addingMethodology &&
               !selectedMethodology && (
                 <div>
@@ -184,7 +186,9 @@ class Experience extends Component {
                 ))}
               </tbody>
             </table>
-            <h5>Usuarios</h5>
+            <h5 className="header" style={{ fontWeight: 'bold' }}>
+              Usuarios
+            </h5>
             {addingUser && (
               <form className="col s12">
                 <div className="row">
@@ -203,6 +207,13 @@ class Experience extends Component {
                 <button
                   className="waves-effect waves-light btn-large"
                   onClick={this.submit}
+                  style={{
+                    backgroundColor: '#ee6e73',
+                    cursor: 'pointer',
+                    display: 'block',
+                    width: 'fit-content',
+                    marginBottom: '5px',
+                  }}
                 >
                   Agregar
                 </button>

@@ -8,7 +8,7 @@ import configureStore from './redux/store'
 import { devlog } from './utils/log'
 
 const history = createHistory()
-const api = new Api(process.env.REACT_APP_API || 'http://localhost:3000')
+const api = new Api(process.env.REACT_APP_API || 'https://iic2113-api-staging.herokuapp.com')
 
 // Redux required objects
 const initialState = {}

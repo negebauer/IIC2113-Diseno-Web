@@ -103,18 +103,27 @@ class Experience extends Component {
             <h3>{experience.name}</h3>
             <h4>Descripción</h4>
             <h4>{experience.description}</h4>
-
             <h5>Metodologías asociadas</h5>
             {addingMethodology &&
               !selectedMethodology && (
                 <div>
-                  <h6>Metodologias disponibles</h6>
+                  <h6 style={{ fontWeight: 'bold' }}>Seleccione Metodologia</h6>
                   {selectableMethodologies.map(m => (
                     <div
+                      className="waves-effect waves-light btn"
+                      style={{
+                        backgroundColor: '#ee6e73',
+                        cursor: 'pointer',
+                        marginLeft: '30px',
+                        display: 'block',
+                        width: 'fit-content',
+                        marginBottom: '5px',
+                      }}
                       key={m.id}
                       value={m.id}
                       onClick={() => this.selectedMethodology(m)}
                     >
+
                       {m.name}
                     </div>
                   ))}
@@ -133,7 +142,19 @@ class Experience extends Component {
                 // }
                 //
                 // y modificar el state como ya sabes
-                <div>{this.state.selectedMethodology.name}</div>
+                <div
+                  className="waves-effect waves-light btn"
+                  style={{
+                    backgroundColor: '#ee6e73',
+                    cursor: 'pointer',
+                    marginLeft: '30px',
+                    display: 'block',
+                    width: 'fit-content',
+                    marginBottom: '5px',
+                  }}
+                >
+                  {this.state.selectedMethodology.name}
+                </div>
               )}
             <div
               onClick={this.toggleAddMethodology}

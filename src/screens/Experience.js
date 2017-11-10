@@ -36,6 +36,13 @@ class Experience extends Component {
     this.setState({ adding: !this.state.adding })
   }
 
+  handleChange = ev =>
+    this.setState({
+      [ev.target.name]: Number(ev.target.value) || ev.target.value,
+    })
+
+  submit = () => {}
+
   render() {
     devlog('Experience', this.props)
     const { adding } = this.state
@@ -55,6 +62,29 @@ class Experience extends Component {
             <h4>{experience.description}</h4>
 
             <h5>Usuarios</h5>
+            {adding && (
+              <form className="col s12">
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input
+                      id="user_mail"
+                      type="email"
+                      className="validate"
+                      name="user_mail"
+                      value={this.state.user_mail}
+                      onChange={this.handleChange}
+                    />
+                    <label htmlFor="email">Email</label>
+                  </div>
+                </div>
+                <button
+                  className="waves-effect waves-light btn-large"
+                  onClick={this.submit}
+                >
+                  Agregar
+                </button>
+              </form>
+            )}
             <div
               onClick={this.toggleAdd}
               className="waves-effect waves-light btn"

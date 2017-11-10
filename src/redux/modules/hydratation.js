@@ -43,7 +43,7 @@ export const hydrate = (store, options) => async (
         else resolve(persistor)
       })
       // To clear the store:
-      persistor.purge()
+      // persistor.purge()
     })
     return dispatchHydrate({ persistor })
   } catch (error) {

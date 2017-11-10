@@ -76,25 +76,23 @@ exports[`matches snapshot 1`] = `
                 >
                   Experiencias
                 </h2>
-                <a
+                <Link
                   className="btn-floating btn-large waves-effect waves-light red"
+                  replace={false}
+                  to="/newexperience"
                 >
-                  <i
-                    className="material-icons"
+                  <a
+                    className="btn-floating btn-large waves-effect waves-light red"
+                    href="/newexperience"
+                    onClick={[Function]}
                   >
-                    <Link
-                      replace={false}
-                      to="/newexperience"
+                    <i
+                      className="material-icons"
                     >
-                      <a
-                        href="/newexperience"
-                        onClick={[Function]}
-                      >
-                        add
-                      </a>
-                    </Link>
-                  </i>
-                </a>
+                      add
+                    </i>
+                  </a>
+                </Link>
                 <table
                   className="bordered responsive-table"
                 >
@@ -107,7 +105,7 @@ exports[`matches snapshot 1`] = `
                         Descripcion
                       </th>
                       <th>
-                        Agregar usuario
+                        Detalle
                       </th>
                     </tr>
                   </thead>

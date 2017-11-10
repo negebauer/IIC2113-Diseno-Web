@@ -227,7 +227,6 @@ exports[`matches snapshot 1`] = `
                       "replace": [Function],
                     }
                   }
-                  loading={false}
                   location={
                     Object {
                       "hash": "",
@@ -251,54 +250,48 @@ exports[`matches snapshot 1`] = `
                       <div
                         className="nav-wrapper"
                       >
-                        <a
+                        <Link
                           className="brand-logo"
+                          replace={false}
+                          to="/"
                         >
-                          <Link
-                            replace={false}
-                            to="/"
+                          <a
+                            className="brand-logo"
+                            href="/"
+                            onClick={[Function]}
                           >
-                            <a
-                              href="/"
-                              onClick={[Function]}
-                            >
-                              Logo
-                            </a>
-                          </Link>
-                        </a>
+                            Logo
+                          </a>
+                        </Link>
                         <ul
                           className="right hide-on-med-and-down"
                           id="nav-mobile"
                         >
                           <li>
-                            <a>
-                              <Link
-                                replace={false}
-                                to="/signup"
+                            <Link
+                              replace={false}
+                              to="/signup"
+                            >
+                              <a
+                                href="/signup"
+                                onClick={[Function]}
                               >
-                                <a
-                                  href="/signup"
-                                  onClick={[Function]}
-                                >
-                                  Signup
-                                </a>
-                              </Link>
-                            </a>
+                                Signup
+                              </a>
+                            </Link>
                           </li>
                           <li>
-                            <a>
-                              <Link
-                                replace={false}
-                                to="/login"
+                            <Link
+                              replace={false}
+                              to="/login"
+                            >
+                              <a
+                                href="/login"
+                                onClick={[Function]}
                               >
-                                <a
-                                  href="/login"
-                                  onClick={[Function]}
-                                >
-                                  Login
-                                </a>
-                              </Link>
-                            </a>
+                                Login
+                              </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>

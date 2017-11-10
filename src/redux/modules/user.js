@@ -15,6 +15,15 @@ export const FETCH_EXPERIENCES = 'negebauer/user/FETCH_EXPERIENCES'
 export const FETCH_EXPERIENCES_PENDING = FETCH_EXPERIENCES + '_PENDING'
 export const FETCH_EXPERIENCES_FULFILLED = FETCH_EXPERIENCES + '_FULFILLED'
 export const FETCH_EXPERIENCES_REJECTED = FETCH_EXPERIENCES + '_REJECTED'
+export const FETCH_EXPERIENCE_METHODOLOGIES =
+  'negebauer/user/FETCH_EXPERIENCE_METHODOLOGIES'
+export const FETCH_EXPERIENCE_METHODOLOGIES_PENDING =
+  FETCH_EXPERIENCE_METHODOLOGIES + '_PENDING'
+export const FETCH_EXPERIENCE_METHODOLOGIES_FULFILLED =
+  FETCH_EXPERIENCE_METHODOLOGIES + '_FULFILLED'
+export const FETCH_EXPERIENCE_METHODOLOGIES_REJECTED =
+  FETCH_EXPERIENCE_METHODOLOGIES + '_REJECTED'
+
 export const LOGOUT = 'negebauer/user/LOGOUT'
 export const LOGOUT_PENDING = LOGOUT + '_PENDING'
 export const LOGOUT_FULFILLED = LOGOUT + '_FULFILLED'
@@ -60,13 +69,19 @@ export default function reducer(state = initialState, action) {
       return _.merge(state, { loading: true })
     }
     case FETCH_EXPERIENCES_FULFILLED: {
-      return _.merge(state, { experiences: payload, loading: false })
+      return _.merge(state, {
+        experiences: payload,
+        loading: false,
+      })
     }
     case FETCH_EXPERIENCES_REJECTED: {
       return _.merge(state, { error: payload.message, loading: false })
     }
     case LOGOUT_PENDING || LOGOUT_REJECTED || LOGOUT_FULFILLED: {
       return _.merge(initialState)
+    }
+    case FETCH_EXPERIENCE_METHODOLOGIES_FULFILLED: {
+      return _.merge(state, { experiences: payload })
     }
     case REHYDRATE: {
       return _.merge(state, {
@@ -111,4 +126,14 @@ export const logout = () => (dispatch, getState, { api }) =>
   dispatch({
     type: LOGOUT,
     payload: api.logout().catch(() => {}),
+  })
+
+export const fetchExperienceMethodologies = experience => (
+  dispatch,
+  getState,
+  { api }
+) =>
+  dispatch({
+    type: FETCH_EXPERIENCE_METHODOLOGIES,
+    payload: api.fetchExperienceMethodologies(experience),
   })

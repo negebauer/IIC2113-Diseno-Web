@@ -1,16 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 export default class ExperienceTableItem extends React.Component {
   render() {
+    const { id, name, description } = this.props
     return (
       <tr>
-        <td>{this.props.name}</td>
-        <td>{this.props.description}</td>
+        <td>{name}</td>
+        <td>{description}</td>
         <td>
-          <a className="waves-effect waves-light btn">
-            <i className="material-icons right">add</i>Agregar
-          </a>
+          <Link
+            to={`/experiences/${id}`}
+            className="waves-effect waves-light btn"
+          >
+            <i className="material-icons">info</i>
+          </Link>
         </td>
       </tr>
     )
@@ -20,4 +25,5 @@ export default class ExperienceTableItem extends React.Component {
 ExperienceTableItem.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 }

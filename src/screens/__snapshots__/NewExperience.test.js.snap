@@ -60,6 +60,7 @@ exports[`matches snapshot 1`] = `
         <NewExperience
           api_key=""
           createExperience={[Function]}
+          creating={false}
           error=""
           loading={false}
           replace={[Function]}

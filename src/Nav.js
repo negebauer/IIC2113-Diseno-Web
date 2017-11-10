@@ -8,6 +8,7 @@ import styled from 'styled-components'
 import Home from './screens/Home'
 import Login from './screens/Login'
 import Logout from './screens/Logout'
+import Methodologies from './screens/Methodologies'
 import Signup from './screens/Signup'
 import Experiences from './screens/Experiences'
 import NewExperience from './screens/NewExperience'
@@ -48,19 +49,30 @@ class Navigator extends Component {
             </Link>
             {
               <ul id="nav-mobile" className="right hide-on-med-and-down">
-                <li>
-                  {!this.props.mail && <Link to="/signup">Signup</Link>}
-                  {this.props.mail && (
+                {!this.props.mail && (
+                  <li>
+                    <Link to="/signup">Signup</Link>
+                  </li>
+                )}
+                {this.props.mail && (
+                  <li>
+                    <Link to="/methodologies">Methodologies</Link>
+                  </li>
+                )}
+                {this.props.mail && (
+                  <li>
                     <Link to="/experiences">Experiences</Link>
-                  )}
-                </li>
+                  </li>
+                )}
                 <li>
                   {this.props.mail && <Link to="/logout">Logout</Link>}
                   {!this.props.mail && <Link to="/login">Login</Link>}
                 </li>
-                <li>
-                  <a>{this.props.mail}</a>
-                </li>
+                {this.props.mail && (
+                  <li>
+                    <a>{this.props.mail}</a>
+                  </li>
+                )}
               </ul>
             }
             {this.props.loading && (
@@ -73,17 +85,22 @@ class Navigator extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} title="Login" />
-          <Route path="/signup" component={Signup} title="signup" />
-          <Route path="/logout" component={Logout} title="logout" />
+          <Route path="/signup" component={Signup} title="Signup" />
+          <Route path="/logout" component={Logout} title="Logout" />
+          <Route
+            path="/methodologies"
+            component={Methodologies}
+            title="Methodologies"
+          />
           <Route
             path="/experiences"
             component={Experiences}
-            title="experiences"
+            title="Experiences"
           />
           <Route
             path="/newexperience"
             component={NewExperience}
-            title="newexperience"
+            title="New Experience"
           />
           <Route component={NotFound} title="Not found" />
         </Switch>

@@ -33,10 +33,6 @@ Route.propTypes = {
 
 const mapStateToProps = state => ({
   mail: state.user.mail,
-  loading:
-    state.user.loading ||
-    state.experience.loading ||
-    state.methodologies.loading,
 })
 
 const mapDispatchToProps = {}
@@ -78,11 +74,6 @@ class Navigator extends Component {
                 )}
               </ul>
             }
-            {this.props.loading && (
-              <div className="progress">
-                <div className="indeterminate" />
-              </div>
-            )}
           </div>
         </nav>
         <Switch>
@@ -114,7 +105,6 @@ class Navigator extends Component {
 
 Navigator.propTypes = {
   mail: PropTypes.string.isRequired,
-  loading: PropTypes.bool.isRequired,
 }
 
 export default withRouter(

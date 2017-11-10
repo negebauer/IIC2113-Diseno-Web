@@ -43,7 +43,7 @@ class Experience extends Component {
         experience_id: -1,
         methood_id: -1,
       },
-      selectedMethodology: {},
+      selectedMethodology: undefined,
     }
   }
 
@@ -64,7 +64,10 @@ class Experience extends Component {
   toggleAddUser = () => this.setState({ addingUser: !this.state.addingUser })
 
   toggleAddMethodology = () =>
-    this.setState({ addingMethodology: !this.state.addingMethodology })
+    this.setState({
+      addingMethodology: !this.state.addingMethodology,
+      selectedMethodology: undefined,
+    })
 
   handleChange = ev =>
     this.setState({
@@ -76,9 +79,12 @@ class Experience extends Component {
     this.props.addUser(this.props.experience, this.state.user_mail)
   }
 
+  selectedMethodology = selectedMethodology =>
+    this.setState({ selectedMethodology })
+
   render() {
     devlog('Experience', this.state, this.props)
-    const { addingUser, addingMethodology } = this.state
+    const { addingUser, addingMethodology, selectedMethodology } = this.state
     const { loading, error, experience, methodologies } = this.props
     const experienceMethodologiesIds = (experience.methodologies || []).map(
       m => m.id
@@ -101,38 +107,25 @@ class Experience extends Component {
             <h4>{experience.description}</h4>
 
             <h5>Metodologías asociadas</h5>
-            {addingMethodology && (
-              <form className="col s12">
-                <div
-                  className="input-field col s12"
-                  style={{ width: '100px', height: '100px', padding: '10px' }}
-                >
-                  <select
-                    style={{ width: '100px', height: '40px', padding: '10px' }}
-                    className="browser-default"
-                    name="selectedMethodology"
-                    value={this.state.selectedMethodology}
-                    onChange={this.handleChange}
-                  >
-                    <option value="" disabled selected>
-                      Elegir una metodología
-                    </option>
-                    {selectableMethodologies.map(m => (
-                      <option key={m.id} value={m.id}>
-                        {m.name}
-                      </option>
-                    ))}
-                  </select>
-                  <label>Metodología</label>
+            {addingMethodology &&
+              !selectedMethodology && (
+                <div>
+                  <h6>Metodologias disponibles</h6>
+                  {selectableMethodologies.map(m => (
+                    <div
+                      key={m.id}
+                      value={m.id}
+                      onClick={() => this.selectedMethodology(m)}
+                    >
+                      {m.name}
+                    </div>
+                  ))}
                 </div>
-                {/* <button
-                  className="waves-effect waves-light btn-large"
-                  onClick={this.submit}
-                >
-                  Agregar
-                </button> */}
-              </form>
-            )}
+              )}
+            {addingMethodology &&
+              selectedMethodology && (
+                <div>{this.state.selectedMethodology.name}</div>
+              )}
             <div
               onClick={this.toggleAddMethodology}
               className="waves-effect waves-light btn"

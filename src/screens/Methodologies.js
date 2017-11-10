@@ -8,6 +8,7 @@ import { fetchMethodologies } from '../redux/modules/methodologies'
 const mapStateToProps = state => ({
   methodologies: state.methodologies.methodologies,
   loading: state.methodologies.loading,
+  error: state.methodologies.error,
 })
 
 const mapDispatchToProps = {
@@ -26,44 +27,39 @@ class Methodologies extends Component {
 
   render() {
     devlog('Methodologies', this.props)
+    const message =
+      (this.props.loading && 'Cargando') ||
+      (this.props.error && this.props.error) ||
+      'Metodologias'
     return (
-      <div className="container">
-        <div className="row">
-          <form className="col s12" ref={f => (this.form = f)}>
-            {/* <h2 className="header">{message}</h2> */}
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  id="name"
-                  type="text"
-                  className="validate"
-                  name="name"
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                />
-                <label htmlFor="name">Name</label>
-              </div>
-            </div>
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  id="description"
-                  type="text"
-                  className="validate"
-                  name="description"
-                  value={this.state.description}
-                  onChange={this.handleChange}
-                />
-                <label htmlFor="description">Descripcion</label>
-              </div>
-            </div>
-            <button
-              className="waves-effect waves-light btn-large"
-              onClick={this.submit}
-            >
-              Agregar experiencia
-            </button>
-          </form>
+      <div>
+        <div className="container">
+          <div className="row">
+            <h2 className="header">{message}</h2>
+            <table className="bordered responsive-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Descripcion</th>
+                  <th>Agregar usuario</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {this.props.methodologies.map(m => (
+                  <tr key={m.id}>
+                    <td>{m.name}</td>
+                    <td>{m.id}</td>
+                    <td>
+                      <a className="waves-effect waves-light btn">
+                        <i className="material-icons right">add</i>Agregar
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     )
@@ -73,6 +69,8 @@ class Methodologies extends Component {
 Methodologies.propTypes = {
   methodologies: PropTypes.array.isRequired,
   fetchMethodologies: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Methodologies)

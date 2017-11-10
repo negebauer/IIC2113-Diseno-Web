@@ -14,7 +14,7 @@ export default class ExperienceTableItem extends React.Component {
             to={`/experiences/${id}`}
             className="waves-effect waves-light btn"
           >
-            <i className="material-icons right">add</i>
+            <i className="material-icons right">info</i>
           </Link>
         </td>
       </tr>

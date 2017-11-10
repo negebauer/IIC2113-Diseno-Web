@@ -46,7 +46,7 @@ class Experiences extends Component {
                 <tr>
                   <th>Nombre</th>
                   <th>Descripcion</th>
-                  <th>Agregar usuario</th>
+                  <th>Detalle</th>
                 </tr>
               </thead>
 

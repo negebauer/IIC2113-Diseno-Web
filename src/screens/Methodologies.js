@@ -74,6 +74,7 @@ class Methodologies extends Component {
         {this.state.methodology && (
           <div className="container">
             <iframe
+              title="methodologyPreview"
               src={this.state.methodology.link}
               style={{ width: '100%', height: '600px' }}
             />

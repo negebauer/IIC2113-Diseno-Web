@@ -76,7 +76,7 @@ exports[`matches snapshot 1`] = `
                 >
                   Experiencias
                 </h2>
-                <a
+                <span
                   className="btn-floating btn-large waves-effect waves-light red"
                 >
                   <i
@@ -94,7 +94,7 @@ exports[`matches snapshot 1`] = `
                       </a>
                     </Link>
                   </i>
-                </a>
+                </span>
                 <table
                   className="bordered responsive-table"
                 >

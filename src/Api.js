@@ -67,7 +67,7 @@ export default class Api {
 
   fetchMethodologies = async () => this.get('/methoods')
 
-  fetchExperiences = async userData => this.get('/experiences', userData)
+  fetchExperiences = async () => this.get('/experiences')
 
   createExperience = async userData => this.post('/experiences', userData)
 

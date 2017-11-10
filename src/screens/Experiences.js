@@ -35,11 +35,12 @@ class Experiences extends Component {
         <div className="container">
           <div className="row">
             <h2 className="header">{message}</h2>
-            <span className="btn-floating btn-large waves-effect waves-light red">
-              <i className="material-icons">
-                <Link to="/newexperience">add</Link>
-              </i>
-            </span>
+            <Link
+              to="/newexperience"
+              className="btn-floating btn-large waves-effect waves-light red"
+            >
+              <i className="material-icons">add</i>
+            </Link>
             <table className="bordered responsive-table">
               <thead>
                 <tr>
@@ -55,6 +56,7 @@ class Experiences extends Component {
                     key={e.id}
                     name={e.name}
                     description={e.description}
+                    id={e.id}
                   />
                 ))}
               </tbody>

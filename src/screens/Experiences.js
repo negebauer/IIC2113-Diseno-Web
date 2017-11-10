@@ -35,11 +35,11 @@ class Experiences extends Component {
         <div className="container">
           <div className="row">
             <h2 className="header">{message}</h2>
-            <a className="btn-floating btn-large waves-effect waves-light red">
+            <span className="btn-floating btn-large waves-effect waves-light red">
               <i className="material-icons">
                 <Link to="/newexperience">add</Link>
               </i>
-            </a>
+            </span>
             <table className="bordered responsive-table">
               <thead>
                 <tr>
